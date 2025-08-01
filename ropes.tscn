@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7s33twtvfc26"]
+[gd_scene load_steps=18 format=3 uid="uid://7s33twtvfc26"]
 
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Script" uid="uid://cbidsm0yuare1" path="res://player.gd" id="1_ayb1n"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="5_vpg34"]
 [ext_resource type="Shader" uid="uid://cs3e78axi08jp" path="res://shaders/waterShader.res" id="7_hm786"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="7_tnijs"]
+[ext_resource type="Texture2D" uid="uid://cxodac186hlvn" path="res://textures/objects/fish.png" id="10_hf606"]
+[ext_resource type="Texture2D" uid="uid://klsndgpwkdwe" path="res://textures/objects/kraken.png" id="11_w1djh"]
+[ext_resource type="Texture2D" uid="uid://b6a8xoi0l16sn" path="res://textures/objects/pufferfish_open.png" id="12_32aq6"]
+[ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="13_32aq6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wbbfn"]
 shader = ExtResource("7_hm786")
@@ -20,7 +24,7 @@ radius = 70.1783
 radius = 70.0286
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpg34"]
-radius = 100.0
+radius = 48.0
 
 [node name="Ropes" type="Node2D"]
 
@@ -77,29 +81,48 @@ shape = SubResource("CircleShape2D_hm786")
 scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("5_vpg34")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Fish" type="RigidBody2D" parent="."]
 position = Vector2(444, -182)
 collision_layer = 32
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
 shape = SubResource("CircleShape2D_vpg34")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2(-581, 433)
+[node name="Sprite2D" type="Sprite2D" parent="Fish"]
+scale = Vector2(0.474708, 0.474708)
+texture = ExtResource("10_hf606")
+
+[node name="Kraken" type="RigidBody2D" parent="."]
+position = Vector2(-119, 119)
 collision_layer = 32
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kraken"]
 shape = SubResource("CircleShape2D_vpg34")
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Kraken"]
+texture = ExtResource("11_w1djh")
+
+[node name="Pufferfish" type="RigidBody2D" parent="."]
 position = Vector2(968, 433)
 collision_layer = 32
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pufferfish"]
 shape = SubResource("CircleShape2D_vpg34")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pufferfish"]
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("12_32aq6")
+
+[node name="Consumable" type="Node2D" parent="Pufferfish" node_paths=PackedStringArray("consume_target")]
+script = ExtResource("13_32aq6")
+num_rays = 8
+ray_size = 200
+draw_gizmo = true
+consume_target = NodePath("..")
+rope_collision_layer = 16
