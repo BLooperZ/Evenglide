@@ -1,11 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://7s33twtvfc26"]
+[gd_scene load_steps=14 format=3 uid="uid://7s33twtvfc26"]
 
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Script" uid="uid://cbidsm0yuare1" path="res://player.gd" id="1_ayb1n"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
 [ext_resource type="Texture2D" uid="uid://7erl8jpo4g4a" path="res://textures/ship.png" id="4_2hbx5"]
+[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_wbbfn"]
 [ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="5_vpg34"]
+[ext_resource type="Shader" uid="uid://cs3e78axi08jp" path="res://shaders/waterShader.res" id="7_hm786"]
+[ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="7_tnijs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbbfn"]
+shader = ExtResource("7_hm786")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnijs"]
 radius = 70.1783
@@ -29,8 +35,18 @@ player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 num_segments = 12
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
 zoom = Vector2(0.3, 0.3)
+script = ExtResource("4_wbbfn")
+keep_in_view = [NodePath("../Player1"), NodePath("../Player2")]
+
+[node name="Background" type="Node2D" parent="Camera2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Background"]
+z_index = -1
+material = SubResource("ShaderMaterial_wbbfn")
+scale = Vector2(17.6953, 17.6953)
+texture = ExtResource("7_tnijs")
 
 [node name="Player1" type="CharacterBody2D" parent="."]
 collision_layer = 64
