@@ -13,6 +13,7 @@ script = ExtResource("1_6gfnu")
 segment_scene = ExtResource("2_mms8q")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
+num_segments = 12
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
@@ -26,7 +27,7 @@ script = ExtResource("1_ayb1n")
 shape = SubResource("CapsuleShape2D_ayb1n")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(0, 895)
+position = Vector2(0, 400)
 collision_layer = 64
 collision_mask = 128
 script = ExtResource("1_ayb1n")

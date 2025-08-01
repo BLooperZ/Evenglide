@@ -24,7 +24,7 @@ func _ready() -> void:
 	add_child(joint)
 	joint.node_a = joint.get_path_to(player1)
 	joint.node_b = joint.get_path_to(seg)
-	
+
 	var vec = (player2.global_position - player1.global_position) / num_segments
 
 	for i in range(num_segments):
