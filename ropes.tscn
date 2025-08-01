@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7s33twtvfc26"]
+[gd_scene load_steps=10 format=3 uid="uid://7s33twtvfc26"]
 
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Script" uid="uid://cbidsm0yuare1" path="res://player.gd" id="1_ayb1n"]
@@ -12,6 +12,9 @@ radius = 70.1783
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hm786"]
 radius = 70.0286
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpg34"]
+radius = 100.0
 
 [node name="Ropes" type="Node2D"]
 
@@ -57,3 +60,30 @@ shape = SubResource("CircleShape2D_hm786")
 [node name="Sprite2D" type="Sprite2D" parent="Player2"]
 scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("5_vpg34")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(444, -182)
+collision_layer = 32
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_vpg34")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(-581, 433)
+collision_layer = 32
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CircleShape2D_vpg34")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(968, 433)
+collision_layer = 32
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+shape = SubResource("CircleShape2D_vpg34")

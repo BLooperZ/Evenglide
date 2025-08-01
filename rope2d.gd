@@ -12,6 +12,9 @@ func create_joint():
 	joint.softness = 16.0
 	joint.k = 400.0
 	joint.rest_length = 20.0
+	joint.angular_limit_enabled = true
+	joint.angular_limit_lower = -3
+	joint.angular_limit_upper = 3
 	return joint
 
 var line_data_sources: Array[Node2D] = []
@@ -31,11 +34,13 @@ func _ready() -> void:
 
 	line_data_sources.append(player1);
 	line_data_sources.append(seg);
-	
+
 	for i in range(num_segments):
 		seg = segment_scene.instantiate()
 		add_child(seg)
 		seg.global_position = last_seg.global_position + vec
+		seg.prev = last_seg
+		last_seg.next = seg
 		joint = create_joint()
 		joint.global_position = (last_seg.global_position + seg.global_position) / 2
 		add_child(joint)
