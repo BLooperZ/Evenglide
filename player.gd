@@ -10,6 +10,9 @@ const ACCELERATION = 0.01
 @export var key_left: String = "p1_left"
 @export var key_right: String = "p1_right"
 
+@onready var sprite = $Sprite2D
+@onready var spriteScaleX = sprite.scale.x
+
 var tension = Vector2(0, 0)
 
 func apply_force(a_force):
@@ -34,6 +37,11 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, direction * SPEED * commitment, 0.7)
 
 	velocity -= tension * delta * (velocity.length() / SPEED)
+
+	if direction.x > 0:
+		sprite.scale.x = -1 * spriteScaleX;
+	else:
+		sprite.scale.x = 1 * spriteScaleX;
 
 
 	move_and_slide()

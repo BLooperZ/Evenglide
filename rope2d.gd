@@ -1,4 +1,4 @@
-extends Node2D
+extends Line2D
 
 @export var segment_scene: PackedScene
 
@@ -14,6 +14,8 @@ func create_joint():
 	joint.rest_length = 20.0
 	return joint
 
+var line_data_sources: Array[Node2D] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var seg = segment_scene.instantiate()
@@ -27,6 +29,9 @@ func _ready() -> void:
 
 	var vec = (player2.global_position - player1.global_position) / num_segments
 
+	line_data_sources.append(player1);
+	line_data_sources.append(seg);
+	
 	for i in range(num_segments):
 		seg = segment_scene.instantiate()
 		add_child(seg)
@@ -37,6 +42,8 @@ func _ready() -> void:
 		joint.node_a = joint.get_path_to(last_seg)
 		joint.node_b = joint.get_path_to(seg)
 		last_seg = seg
+		line_data_sources.append(seg);
+
 
 	joint = create_joint()
 	joint.global_position = last_seg.global_position
@@ -44,6 +51,9 @@ func _ready() -> void:
 	joint.node_a = joint.get_path_to(player2)
 	joint.node_b = joint.get_path_to(last_seg)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	line_data_sources.append(player2);
+
+func _physics_process(_delta: float) -> void:
+	clear_points()
+	for link in line_data_sources:
+		add_point(link.global_position)
