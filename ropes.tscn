@@ -1,14 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://7s33twtvfc26"]
+[gd_scene load_steps=9 format=3 uid="uid://7s33twtvfc26"]
 
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Script" uid="uid://cbidsm0yuare1" path="res://player.gd" id="1_ayb1n"]
+[ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
+[ext_resource type="Texture2D" uid="uid://7erl8jpo4g4a" path="res://textures/ship.png" id="4_2hbx5"]
+[ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="5_vpg34"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayb1n"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tnijs"]
+radius = 70.1783
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm786"]
+radius = 70.0286
 
 [node name="Ropes" type="Node2D"]
 
-[node name="Rope" type="Node2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+[node name="Rope" type="Line2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+texture_repeat = 2
+width = 30.0
+texture = ExtResource("1_vpg34")
+texture_mode = 1
 script = ExtResource("1_6gfnu")
 segment_scene = ExtResource("2_mms8q")
 player1 = NodePath("../Player1")
@@ -23,7 +34,11 @@ collision_mask = 128
 script = ExtResource("1_ayb1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1"]
-shape = SubResource("CapsuleShape2D_ayb1n")
+shape = SubResource("CircleShape2D_tnijs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1"]
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("4_2hbx5")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 position = Vector2(0, 895)
@@ -36,4 +51,8 @@ key_left = "p2_left"
 key_right = "p2_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-shape = SubResource("CapsuleShape2D_ayb1n")
+shape = SubResource("CircleShape2D_hm786")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("5_vpg34")
