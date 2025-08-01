@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 1000.0
+const SPEED = 3000.0
 const TURN_RATE = 0.035
-const ACCELERATION = 0.01
+const ACCELERATION = 0.02
 
 @export var key_up: String = "p1_up"
 @export var key_down: String = "p1_down"

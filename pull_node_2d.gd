@@ -2,10 +2,10 @@ extends PinJoint2D
 
 class_name PullJoint2D
 
-@export var k: float = 400.0
-@export var rest_length: float = 20.0
-@export var segment_factor: float = 0.002
-@export var compress_factor: float = 2.0
+@export var k: float = 2000.0
+@export var rest_length: float = 0.02
+@export var segment_factor: float = 0.02
+@export var compress_factor: float = 720.0
 
 var xnode_a
 var xnode_b

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
 [ext_resource type="Texture2D" uid="uid://7erl8jpo4g4a" path="res://textures/ship.png" id="4_2hbx5"]
-[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_wbbfn"]
+[ext_resource type="Script" path="res://CameraFollow.gd" id="4_wbbfn"]
 [ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="5_vpg34"]
 [ext_resource type="Shader" uid="uid://cs3e78axi08jp" path="res://shaders/waterShader.res" id="7_hm786"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="7_tnijs"]
@@ -33,7 +33,7 @@ script = ExtResource("1_6gfnu")
 segment_scene = ExtResource("2_mms8q")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
-num_segments = 12
+num_segments = 32
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
 zoom = Vector2(0.3, 0.3)
@@ -61,7 +61,7 @@ scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("4_2hbx5")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(0, 400)
+position = Vector2(0, 800)
 collision_layer = 64
 collision_mask = 128
 script = ExtResource("1_ayb1n")

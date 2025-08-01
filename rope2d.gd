@@ -10,8 +10,6 @@ extends Line2D
 func create_joint():
 	var joint = PullJoint2D.new()
 	joint.softness = 16.0
-	joint.k = 400.0
-	joint.rest_length = 20.0
 	joint.angular_limit_enabled = true
 	joint.angular_limit_lower = -3
 	joint.angular_limit_upper = 3
@@ -21,6 +19,7 @@ var line_data_sources: Array[Node2D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var seg = segment_scene.instantiate()
 	add_child(seg)
 	var last_seg = seg
