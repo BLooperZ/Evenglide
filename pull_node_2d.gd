@@ -1,4 +1,6 @@
-extends Joint2D
+extends PinJoint2D
+
+class_name PullJoint2D
 
 @export var k: float = 400.0
 @export var rest_length: float = 20.0
@@ -13,6 +15,10 @@ func _ready():
 	xnode_b = get_node(node_b)
 
 func _physics_process(delta):
+	
+	xnode_a = get_node(node_a)
+	xnode_b = get_node(node_b)
+
 	var pos_a = xnode_a.global_position
 	var pos_b = xnode_b.global_position
 	var delta_pos = pos_b - pos_a
@@ -29,5 +35,9 @@ func _physics_process(delta):
 
 	if xnode_a is RigidBody2D:
 		xnode_a.apply_central_impulse(-force * 0.0002 * delta)
+	elif xnode_a is CharacterBody2D:
+		xnode_a.apply_force(force)
 	if xnode_b is RigidBody2D:
 		xnode_b.apply_central_impulse(force * 0.0002 * delta)
+	elif xnode_b is CharacterBody2D:
+		xnode_b.apply_force(force)
