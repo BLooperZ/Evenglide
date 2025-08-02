@@ -76,6 +76,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				current_time_to_consume = 0
 				is_consuming = false
+		
+		consume_target.modulate = lerp(Color.WHITE, Color.RED, min(current_time_to_consume, time_to_consume_seconds) / time_to_consume_seconds)
 
 func _process(_delta: float) -> void:
 	if draw_gizmo:
