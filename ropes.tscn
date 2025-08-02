@@ -13,7 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://bobxy5tvltjh6" path="res://entities/fish.tscn" id="10_w1djh"]
 [ext_resource type="PackedScene" uid="uid://bsm6ofx8u0hi2" path="res://entities/kraken.tscn" id="11_32aq6"]
 [ext_resource type="PackedScene" uid="uid://6kpffveuafgh" path="res://entities/pufferfish.tscn" id="12_05mpk"]
+[ext_resource type="Texture2D" uid="uid://c75ch0shc8s8a" path="res://textures/export/gmtk icons-06.png" id="12_w1djh"]
+[ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="13_32aq6"]
 [ext_resource type="AudioStream" uid="uid://bh1h6mt0e6kfq" path="res://Heaving2.ogg" id="14_05mpk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05mpk"]
 
 [node name="Ropes" type="Node2D"]
 
@@ -69,3 +73,21 @@ position = Vector2(30173, 917)
 
 [node name="Pufferfish" parent="." instance=ExtResource("12_05mpk")]
 position = Vector2(1521, 892)
+
+[node name="Center Line" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(10, 1073, 26279, 1057)
+width = 50.0
+texture = ExtResource("12_w1djh")
+texture_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_05mpk")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+
+[node name="Consumable" type="Node2D" parent="RigidBody2D"]
+script = ExtResource("13_32aq6")
+metadata/_custom_type_script = "uid://bg84b72l60ijl"
