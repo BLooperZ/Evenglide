@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ycdqthdhbwng"]
+
+[ext_resource type="Script" uid="uid://cbidsm0yuare1" path="res://player.gd" id="1_kr3fw"]
+[ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="2_np2iu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm786"]
+radius = 70.0286
+
+[node name="Player2" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 128
+script = ExtResource("1_kr3fw")
+key_up = "p2_up"
+key_down = "p2_down"
+key_left = "p2_left"
+key_right = "p2_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hm786")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("2_np2iu")
