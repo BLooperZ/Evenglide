@@ -1,0 +1,1648 @@
+[gd_scene load_steps=25 format=3 uid="uid://bwqnp1xice84"]
+
+[ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vaj68"]
+[ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="2_i2p71"]
+[ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="3_xa8c5"]
+[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_5b14r"]
+[ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="5_bnpwn"]
+[ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="6_36jdj"]
+[ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="7_xfvwf"]
+[ext_resource type="PackedScene" uid="uid://cumjad5g6ro80" path="res://entities/player_1.tscn" id="8_dhpj7"]
+[ext_resource type="Texture2D" uid="uid://krpj41e3drn5" path="res://textures/export/gmtk icons-01.png" id="9_7knny"]
+[ext_resource type="Texture2D" uid="uid://c0mofnmdutgl4" path="res://textures/export/gmtk icons-04.png" id="10_082n1"]
+[ext_resource type="AudioStream" uid="uid://bh1h6mt0e6kfq" path="res://sounds/Heaving2.ogg" id="12_aa0lp"]
+[ext_resource type="PackedScene" uid="uid://d2b0wv8d730md" path="res://entities/tentacle.tscn" id="13_iu0sx"]
+[ext_resource type="PackedScene" uid="uid://bsm6ofx8u0hi2" path="res://entities/kraken.tscn" id="14_4v2jo"]
+[ext_resource type="PackedScene" uid="uid://dwpsv3ow6cdpo" path="res://entities/jellyfish.tscn" id="15_l1i01"]
+[ext_resource type="PackedScene" uid="uid://bobxy5tvltjh6" path="res://entities/fish.tscn" id="16_r62pu"]
+[ext_resource type="PackedScene" uid="uid://6kpffveuafgh" path="res://entities/pufferfish.tscn" id="17_klri6"]
+[ext_resource type="PackedScene" uid="uid://bixcnb1h8dqt7" path="res://entities/kelp.tscn" id="18_eu6ph"]
+[ext_resource type="PackedScene" uid="uid://ceuj1bvvrisc0" path="res://entities/trash.tscn" id="19_edr7y"]
+[ext_resource type="PackedScene" uid="uid://bifh1r1f7fh" path="res://entities/waste.tscn" id="20_kq12w"]
+[ext_resource type="PackedScene" uid="uid://4boep6krmy4e" path="res://entities/fruit.tscn" id="21_t46w6"]
+[ext_resource type="PackedScene" uid="uid://bvl65unk8vtxg" path="res://entities/jerry_fish.tscn" id="22_m28ev"]
+[ext_resource type="PackedScene" uid="uid://ek47oysq81b" path="res://entities/giraffish.tscn" id="23_lwlx3"]
+[ext_resource type="PackedScene" uid="uid://c2n5u7ifpa4j1" path="res://entities/tree.tscn" id="24_0de7l"]
+[ext_resource type="PackedScene" uid="uid://d2ios64upe3f" path="res://entities/wreck.tscn" id="25_87ddb"]
+
+[node name="Ropes" type="Node2D"]
+
+[node name="Rope" type="Line2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+texture_repeat = 2
+points = PackedVector2Array(2987, -342)
+width = 30.0
+texture = ExtResource("1_vaj68")
+texture_mode = 1
+script = ExtResource("2_i2p71")
+segment_scene = ExtResource("3_xa8c5")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+num_segments = 12
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
+zoom = Vector2(0.3, 0.3)
+script = ExtResource("4_5b14r")
+keep_in_view = [NodePath("../Player1"), NodePath("../Player2")]
+
+[node name="Background" type="Node2D" parent="Camera2D"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera2D/Background"]
+modulate = Color(0.24, 0.417333, 0.8, 1)
+z_index = -1
+scale = Vector2(17.6953, 17.6953)
+texture = ExtResource("5_bnpwn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera2D/Background"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+material = ExtResource("6_36jdj")
+scale = Vector2(17.6953, 17.6953)
+texture = ExtResource("5_bnpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Background"]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+material = ExtResource("7_xfvwf")
+scale = Vector2(17.6953, 17.6953)
+texture = ExtResource("5_bnpwn")
+
+[node name="Pufferfish" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-1457, -1927)
+
+[node name="Pufferfish2" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-1680, -2006)
+
+[node name="Pufferfish3" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-1890, -2360)
+
+[node name="Pufferfish4" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-2021, -2570)
+
+[node name="Pufferfish5" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-2139, -2858)
+
+[node name="Pufferfish6" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-2309, -3068)
+
+[node name="Pufferfish7" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-2532, -3304)
+
+[node name="Pufferfish8" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-2702, -3671)
+
+[node name="Pufferfish9" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-3004, -3855)
+
+[node name="Pufferfish10" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-3319, -3921)
+
+[node name="Pufferfish11" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-3621, -4288)
+
+[node name="Pufferfish12" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-4080, -4432)
+
+[node name="Pufferfish13" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-4447, -4747)
+
+[node name="Pufferfish14" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-4887, -4900)
+
+[node name="Pufferfish15" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-5044, -5123)
+
+[node name="Pufferfish16" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-5477, -5241)
+
+[node name="Pufferfish17" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-5792, -5464)
+
+[node name="Pufferfish18" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-6316, -5438)
+
+[node name="Pufferfish19" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-6683, -5517)
+
+[node name="Pufferfish20" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
+position = Vector2(-6621, -5053)
+
+[node name="Player1" parent="." instance=ExtResource("8_dhpj7")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1"]
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("9_7knny")
+
+[node name="Player2" parent="." instance=ExtResource("8_dhpj7")]
+position = Vector2(2, 410)
+key_up = "p2_up"
+key_down = "p2_down"
+key_left = "p2_left"
+key_right = "p2_right"
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("10_082n1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_aa0lp")
+autoplay = true
+
+[node name="Fish" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(491, -435)
+
+[node name="Fish2" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-403, -457)
+
+[node name="Fish3" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-768, 333)
+
+[node name="Fish4" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(772, 563)
+
+[node name="Fish5" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1198, -877)
+
+[node name="Fish6" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1518, -917)
+
+[node name="Fish7" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1333, -1147)
+
+[node name="Fish8" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1558, -1187)
+
+[node name="Fish9" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1148, -1057)
+
+[node name="Fish10" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(1634, 376)
+
+[node name="Fish11" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1617, 553)
+
+[node name="Fish12" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1449, 1302)
+
+[node name="Fish13" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-70, 1449)
+
+[node name="Fish14" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(934, 1341)
+
+[node name="Fish15" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(1328, -649)
+
+[node name="Fish16" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(166, -1407)
+
+[node name="Fish17" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-2001, -255)
+
+[node name="Pufferfish" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1961, 287)
+
+[node name="Pufferfish2" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1075, 1607)
+
+[node name="Pufferfish3" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1831, 730)
+
+[node name="Pufferfish4" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1348, -1289)
+
+[node name="Pufferfish5" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-336, -2047)
+
+[node name="Pufferfish6" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2139, -1348)
+
+[node name="Pufferfish7" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2629, 671)
+
+[node name="Pufferfish8" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2747, 848)
+
+[node name="Pufferfish9" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2865, 651)
+
+[node name="Fish18" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(2717, 405)
+
+[node name="Fish19" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(2510, 917)
+
+[node name="Fish20" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(2993, 858)
+
+[node name="JellyFish" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(841, -272)
+
+[node name="JellyFish2" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(4763, -1507)
+
+[node name="JellyFish3" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(3259, -782)
+
+[node name="JellyFish4" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(1513, -191)
+
+[node name="JellyFish5" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(5909, -1552)
+
+[node name="JellyFish6" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(6733, -2036)
+
+[node name="JellyFish7" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(6850, -2376)
+
+[node name="JellyFish8" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7082, -2197)
+
+[node name="JellyFish9" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7279, -2958)
+
+[node name="JellyFish10" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7682, -2671)
+
+[node name="JellyFish11" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7432, -2663)
+
+[node name="JellyFish12" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(8041, -2349)
+
+[node name="JellyFish13" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7620, -2072)
+
+[node name="JellyFish14" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(6447, -2806)
+
+[node name="JellyFish15" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(6948, -3576)
+
+[node name="JellyFish16" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7844, -3639)
+
+[node name="JellyFish17" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(8497, -3119)
+
+[node name="JellyFish18" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(8909, -2501)
+
+[node name="JellyFish19" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(8103, -1749)
+
+[node name="JellyFish20" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(7253, -4624)
+
+[node name="JellyFish21" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(8363, -4382)
+
+[node name="JellyFish22" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(9357, -3862)
+
+[node name="JellyFish23" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(10046, -2752)
+
+[node name="JellyFish24" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(9035, -5378)
+
+[node name="JellyFish25" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(10359, -4612)
+
+[node name="JellyFish26" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(12519, -5123)
+
+[node name="JellyFish27" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(10545, -5680)
+
+[node name="JellyFish28" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(11636, -5262)
+
+[node name="JellyFish29" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(10684, -3660)
+
+[node name="JellyFish30" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(11892, -4240)
+
+[node name="JellyFish31" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(12472, -6168)
+
+[node name="JellyFish32" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(14632, -5843)
+
+[node name="JellyFish33" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(11822, -8374)
+
+[node name="JellyFish34" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(12937, -11022)
+
+[node name="JellyFish35" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(15373, -13730)
+
+[node name="JellyFish36" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(21248, -5316)
+
+[node name="JellyFish37" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(16668, -7009)
+
+[node name="JellyFish38" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(16668, -11738)
+
+[node name="JellyFish39" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(21447, -14078)
+
+[node name="JerryFish" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(13282, -7955)
+
+[node name="JerryFish2" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(14328, -11241)
+
+[node name="JerryFish3" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(19605, -7357)
+
+[node name="JerryFish4" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(18410, -15124)
+
+[node name="JerryFish5" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(23787, -16070)
+
+[node name="JerryFish6" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27919, -13481)
+
+[node name="JerryFish7" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31205, -10643)
+
+[node name="JerryFish8" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(24591, -11395)
+
+[node name="JerryFish9" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(23390, -14410)
+
+[node name="JerryFish10" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(18919, -11676)
+
+[node name="JerryFish11" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(22624, -8994)
+
+[node name="JerryFish12" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27328, -6776)
+
+[node name="JerryFish13" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(17715, -4121)
+
+[node name="JerryFish14" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(24672, -6514)
+
+[node name="JerryFish15" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(22914, -4121)
+
+[node name="JerryFish16" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(22540, -11489)
+
+[node name="JerryFish17" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(26804, -9058)
+
+[node name="JerryFish18" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(11094, -2811)
+
+[node name="JerryFish19" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(8925, -6701)
+
+[node name="JerryFish20" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27814, -16913)
+
+[node name="JerryFish21" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30432, -17923)
+
+[node name="JerryFish22" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(32863, -17661)
+
+[node name="JerryFish23" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(34322, -16427)
+
+[node name="JerryFish24" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33761, -13920)
+
+[node name="JerryFish25" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(32789, -12275)
+
+[node name="JerryFish26" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(29647, -11751)
+
+[node name="JerryFish27" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27215, -15529)
+
+[node name="JerryFish28" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30844, -12574)
+
+[node name="JerryFish29" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(29273, -16576)
+
+[node name="JerryFish30" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(28786, -14631)
+
+[node name="JerryFish31" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30955, -15342)
+
+[node name="JerryFish32" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31965, -20018)
+
+[node name="JerryFish33" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(29422, -20168)
+
+[node name="JerryFish34" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27178, -18560)
+
+[node name="JerryFish35" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(25420, -19196)
+
+[node name="JerryFish36" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(24672, -17101)
+
+[node name="JerryFish37" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(21829, -16727)
+
+[node name="JerryFish38" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(20669, -15792)
+
+[node name="JerryFish39" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(20370, -12052)
+
+[node name="JerryFish40" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(25719, -13510)
+
+[node name="JerryFish41" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(27440, -11303)
+
+[node name="JerryFish42" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(29460, -8311)
+
+[node name="JerryFish43" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33836, -9284)
+
+[node name="JerryFish44" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(34509, -11379)
+
+[node name="JerryFish45" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(36491, -12613)
+
+[node name="JerryFish46" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(34696, -15231)
+
+[node name="JerryFish47" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(32527, -13660)
+
+[node name="JerryFish48" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31255, -14146)
+
+[node name="JerryFish49" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31405, -16540)
+
+[node name="JerryFish50" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33612, -17026)
+
+[node name="JerryFish51" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(32153, -17325)
+
+[node name="JerryFish52" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30470, -14482)
+
+[node name="JerryFish53" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30059, -15679)
+
+[node name="JerryFish54" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30545, -16801)
+
+[node name="JerryFish55" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31443, -17961)
+
+[node name="JerryFish56" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33912, -17924)
+
+[node name="JerryFish57" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(35034, -17400)
+
+[node name="JerryFish58" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(35632, -16053)
+
+[node name="JerryFish59" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(35445, -14557)
+
+[node name="JerryFish60" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(34809, -13697)
+
+[node name="JerryFish61" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33986, -12762)
+
+[node name="JerryFish62" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(31891, -12837)
+
+[node name="JerryFish63" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(30133, -13548)
+
+[node name="JerryFish64" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(33387, -19495)
+
+[node name="JerryFish65" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(35594, -18747)
+
+[node name="JerryFish66" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(36230, -17064)
+
+[node name="JerryFish67" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(37277, -15194)
+
+[node name="JerryFish68" parent="." instance=ExtResource("22_m28ev")]
+position = Vector2(36230, -13885)
+
+[node name="Fruit" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(32714, -15491)
+
+[node name="JellyFish40" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(30993, -13509)
+
+[node name="JellyFish41" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(32995, -13038)
+
+[node name="JellyFish42" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(35717, -15323)
+
+[node name="JellyFish43" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(35630, -13543)
+
+[node name="JellyFish44" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(35019, -12583)
+
+[node name="JellyFish45" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(33640, -11484)
+
+[node name="JellyFish46" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(31476, -11798)
+
+[node name="JellyFish47" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(29731, -12723)
+
+[node name="JellyFish48" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(29644, -14538)
+
+[node name="JellyFish49" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(32593, -18499)
+
+[node name="JellyFish50" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(34320, -19110)
+
+[node name="JellyFish51" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(30418, -19203)
+
+[node name="JellyFish52" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(28560, -17856)
+
+[node name="JellyFish53" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(26191, -17299)
+
+[node name="JellyFish54" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(25494, -15882)
+
+[node name="JellyFish55" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(24379, -14326)
+
+[node name="JellyFish56" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(23659, -12816)
+
+[node name="JellyFish57" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(19293, -13466)
+
+[node name="JellyFish58" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(17969, -12653)
+
+[node name="JellyFish59" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(16413, -9866)
+
+[node name="JellyFish60" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(18945, -10075)
+
+[node name="JellyFish61" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(20803, -10121)
+
+[node name="JellyFish62" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(23683, -10609)
+
+[node name="JellyFish63" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(25704, -10261)
+
+[node name="JellyFish64" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(25356, -7938)
+
+[node name="JellyFish65" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(23335, -7822)
+
+[node name="JellyFish66" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(21941, -6545)
+
+[node name="JellyFish67" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(19711, -5964)
+
+[node name="JellyFish68" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(17063, -5430)
+
+[node name="JellyFish69" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(14926, -3433)
+
+[node name="JellyFish70" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(12998, -3549)
+
+[node name="JellyFish71" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(25563, -5732)
+
+[node name="JellyFish72" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(30045, -7149)
+
+[node name="JellyFish73" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(33250, -8171)
+
+[node name="JellyFish74" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(35967, -9750)
+
+[node name="JellyFish75" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(37570, -11747)
+
+[node name="JellyFish76" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(38754, -14046)
+
+[node name="JellyFish77" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(38661, -16996)
+
+[node name="JellyFish78" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(37105, -19365)
+
+[node name="JellyFish79" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(34713, -21153)
+
+[node name="JellyFish80" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(30300, -21780)
+
+[node name="JellyFish81" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(27676, -20990)
+
+[node name="JellyFish82" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(23797, -19596)
+
+[node name="JellyFish83" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(22520, -17993)
+
+[node name="JellyFish84" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(19431, -17436)
+
+[node name="JellyFish85" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(17387, -16089)
+
+[node name="JellyFish86" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(32866, -24100)
+
+[node name="JellyFish87" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(36939, -22335)
+
+[node name="JellyFish88" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(40786, -18895)
+
+[node name="JellyFish89" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(41239, -14369)
+
+[node name="JellyFish90" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(40741, -10748)
+
+[node name="JellyFish91" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(38342, -8530)
+
+[node name="JellyFish92" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(36079, -7263)
+
+[node name="JellyFish93" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(32368, -4819)
+
+[node name="JellyFish94" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(29055, -2831)
+
+[node name="JellyFish95" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(41181, -23903)
+
+[node name="JellyFish96" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(24747, -23108)
+
+[node name="JellyFish97" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(44626, -16415)
+
+[node name="JellyFish98" parent="." instance=ExtResource("15_l1i01")]
+position = Vector2(44626, -16415)
+
+[node name="Tree" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-7536, -5438)
+
+[node name="Tree2" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-8821, -4915)
+
+[node name="Tree3" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-10122, -5185)
+
+[node name="Tree4" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-10915, -6153)
+
+[node name="Tree5" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-10836, -7374)
+
+[node name="Tree6" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-10170, -8358)
+
+[node name="Tree7" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-8853, -8675)
+
+[node name="Tree8" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-7473, -8405)
+
+[node name="Tree9" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-6918, -7342)
+
+[node name="Tree10" parent="." instance=ExtResource("24_0de7l")]
+position = Vector2(-6712, -6263)
+
+[node name="Giraffish" parent="." instance=ExtResource("23_lwlx3")]
+position = Vector2(-9361, -7643)
+
+[node name="Giraffish2" parent="." instance=ExtResource("23_lwlx3")]
+position = Vector2(-9726, -6501)
+
+[node name="Giraffish3" parent="." instance=ExtResource("23_lwlx3")]
+position = Vector2(-8457, -6089)
+
+[node name="Giraffish4" parent="." instance=ExtResource("23_lwlx3")]
+position = Vector2(-8092, -7263)
+
+[node name="Fruit2" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(-8869, -6977)
+
+[node name="Fish21" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-2392, 1077)
+
+[node name="Fish22" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-1974, 931)
+
+[node name="Fish23" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-2654, 1374)
+
+[node name="Fish24" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3353, 1532)
+
+[node name="Fish25" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3757, 1847)
+
+[node name="Fish26" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4131, 2034)
+
+[node name="Fish27" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4279, 2251)
+
+[node name="Fish28" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4535, 2212)
+
+[node name="Fish29" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4752, 2182)
+
+[node name="Fish30" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4998, 2359)
+
+[node name="Fish31" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5293, 2595)
+
+[node name="Fish32" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4948, 2536)
+
+[node name="Fish33" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4702, 2369)
+
+[node name="Fish34" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4426, 2408)
+
+[node name="Fish35" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4672, 2575)
+
+[node name="Fish36" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4869, 2742)
+
+[node name="Fish37" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5135, 2801)
+
+[node name="Fish38" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4505, 2762)
+
+[node name="Fish39" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4278, 2565)
+
+[node name="Fish40" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3973, 2358)
+
+[node name="Fish41" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4702, 2979)
+
+[node name="Fish42" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4397, 1886)
+
+[node name="Fish43" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3944, 1689)
+
+[node name="Fish44" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3333, 1837)
+
+[node name="Fish45" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-2969, 1423)
+
+[node name="Fish46" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-2171, 1216)
+
+[node name="Fish47" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5037, 3028)
+
+[node name="Fish48" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5431, 2930)
+
+[node name="Fish49" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5342, 3225)
+
+[node name="Fish50" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5697, 3176)
+
+[node name="Fish51" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-5145, 2191)
+
+[node name="Fish52" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-3993, 2792)
+
+[node name="Fish53" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4229, 2950)
+
+[node name="Fish54" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4524, 3157)
+
+[node name="Fish55" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4682, 1758)
+
+[node name="Fish56" parent="." instance=ExtResource("16_r62pu")]
+position = Vector2(-4682, 1758)
+
+[node name="Pufferfish10" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4210, 1325)
+
+[node name="Pufferfish11" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5106, 1670)
+
+[node name="Pufferfish12" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5924, 2527)
+
+[node name="Pufferfish13" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3501, 2133)
+
+[node name="Pufferfish14" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3619, 2882)
+
+[node name="Pufferfish15" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4131, 3463)
+
+[node name="Pufferfish16" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4929, 3384)
+
+[node name="Pufferfish17" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5559, 3650)
+
+[node name="Pufferfish18" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6416, 3118)
+
+[node name="Pufferfish19" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2772, 1739)
+
+[node name="Pufferfish20" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3393, 1050)
+
+[node name="Pufferfish21" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2497, 686)
+
+[node name="Pufferfish22" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2605, -466)
+
+[node name="Pufferfish23" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1364, -377)
+
+[node name="Pufferfish24" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1817, 1770)
+
+[node name="Pufferfish25" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2556, 2154)
+
+[node name="Pufferfish26" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3048, 2016)
+
+[node name="Pufferfish27" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3610, 2489)
+
+[node name="Pufferfish28" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2792, 2548)
+
+[node name="Pufferfish29" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2280, 2469)
+
+[node name="Pufferfish30" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-517, 1878)
+
+[node name="Pufferfish31" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(507, 1780)
+
+[node name="Pufferfish32" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1600, 2026)
+
+[node name="Pufferfish33" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3246, -52)
+
+[node name="Pufferfish34" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1778, -1766)
+
+[node name="Pufferfish35" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-872, -1668)
+
+[node name="Pufferfish36" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-685, -2131)
+
+[node name="Pufferfish37" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1098, -1954)
+
+[node name="Pufferfish38" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1886, -2240)
+
+[node name="Pufferfish39" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2260, -1491)
+
+[node name="Pufferfish40" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2940, -1688)
+
+[node name="Pufferfish41" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2595, -762)
+
+[node name="Pufferfish42" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2162, -614)
+
+[node name="Pufferfish43" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2379, -112)
+
+[node name="Pufferfish44" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2034, 1375)
+
+[node name="Pufferfish45" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1502, 1336)
+
+[node name="Pufferfish46" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1039, 2094)
+
+[node name="Pufferfish47" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(418, 2114)
+
+[node name="Pufferfish48" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(54, 2587)
+
+[node name="Pufferfish49" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-803, 2242)
+
+[node name="Pufferfish50" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1424, 2646)
+
+[node name="Pufferfish51" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1591, 2282)
+
+[node name="Pufferfish52" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4048, 294)
+
+[node name="Pufferfish53" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1774, -3078)
+
+[node name="Pufferfish54" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3767, -3231)
+
+[node name="Pufferfish55" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3869, -4764)
+
+[node name="Pufferfish56" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6552, -4125)
+
+[node name="Pufferfish57" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(1802, -4662)
+
+[node name="Pufferfish58" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(3718, -2746)
+
+[node name="Pufferfish59" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(473, -3589)
+
+[node name="Pufferfish60" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1520, 4433)
+
+[node name="Pufferfish61" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(2619, 3794)
+
+[node name="Pufferfish62" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(4612, 1852)
+
+[node name="Pufferfish63" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5403, 4535)
+
+[node name="Pufferfish64" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6680, 1648)
+
+[node name="Pufferfish65" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(7090, -268)
+
+[node name="Pufferfish66" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(5021, -4637)
+
+[node name="Pufferfish67" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5326, -1137)
+
+[node name="Pufferfish68" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-9005, 3564)
+
+[node name="Pufferfish69" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-7370, 4407)
+
+[node name="Pufferfish70" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(470, 4155)
+
+[node name="Pufferfish71" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(4698, 235)
+
+[node name="Pufferfish72" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-706, -5309)
+
+[node name="Pufferfish73" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(4866, -6205)
+
+[node name="Kelp" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3215, -744)
+
+[node name="Kelp2" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2927, -1583)
+
+[node name="Kelp3" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2389, -2579)
+
+[node name="Kelp4" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-1616, -2553)
+
+[node name="Kelp5" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3176, -2251)
+
+[node name="Kelp6" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3674, -1517)
+
+[node name="Kelp7" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-4552, -612)
+
+[node name="Kelp8" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2992, 555)
+
+[node name="Kelp9" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-790, -2998)
+
+[node name="Kelp10" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-370, -1346)
+
+[node name="Kelp11" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(639, -2854)
+
+[node name="Kelp12" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(587, -2015)
+
+[node name="Kelp13" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(1846, -3051)
+
+[node name="Kelp14" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(1885, -1819)
+
+[node name="Kelp15" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(2881, -2409)
+
+[node name="Kelp16" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(2645, -1347)
+
+[node name="Kelp17" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(4022, -1321)
+
+[node name="Kelp18" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3838, 42)
+
+[node name="Kelp19" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3183, -181)
+
+[node name="Kelp20" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3576, 658)
+
+[node name="Kelp21" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3392, 1169)
+
+[node name="Kelp22" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(2933, 1549)
+
+[node name="Kelp23" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(2251, 1969)
+
+[node name="Kelp24" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(1792, 2795)
+
+[node name="Kelp25" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(901, 2611)
+
+[node name="Kelp26" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(416, 1234)
+
+[node name="Kelp27" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-711, 2873)
+
+[node name="Kelp28" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-1616, 3214)
+
+[node name="Kelp29" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2560, 3122)
+
+[node name="Kelp30" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3215, 3778)
+
+[node name="Kelp31" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-4172, 4342)
+
+[node name="Kelp32" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2205, 3634)
+
+[node name="Kelp33" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3319, 4578)
+
+[node name="Kelp34" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-2218, 4394)
+
+[node name="Kelp35" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-1104, 3725)
+
+[node name="Kelp36" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-199, 3240)
+
+[node name="Kelp37" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(1374, 3240)
+
+[node name="Kelp38" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(469, 3410)
+
+[node name="Kelp39" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-318, 4026)
+
+[node name="Kelp40" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3091, 2702)
+
+[node name="Kelp41" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3996, 1706)
+
+[node name="Kelp42" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(4271, 880)
+
+[node name="Kelp43" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(4376, -549)
+
+[node name="Kelp44" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(3419, -2057)
+
+[node name="Kelp45" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(2973, -3355)
+
+[node name="Kelp46" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(1387, -3788)
+
+[node name="Kelp47" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-317, -4011)
+
+[node name="Kelp48" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-1943, -3919)
+
+[node name="Kelp49" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-3084, -3329)
+
+[node name="Kelp50" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-4513, -2136)
+
+[node name="Kelp51" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-5195, 14)
+
+[node name="Kelp52" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-4802, 866)
+
+[node name="Kelp53" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-5969, 1036)
+
+[node name="Kelp54" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-6821, 2753)
+
+[node name="Kelp55" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-6559, 3959)
+
+[node name="Kelp56" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-7582, 3186)
+
+[node name="Kelp57" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-7411, 1534)
+
+[node name="Kelp58" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(-6729, -65)
+
+[node name="Trash" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(3891, 2763)
+
+[node name="Trash2" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(3315, 3281)
+
+[node name="Trash3" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(4601, 3895)
+
+[node name="Trash4" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(5426, 2647)
+
+[node name="Trash5" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(1222, 4509)
+
+[node name="Trash6" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(6904, 3991)
+
+[node name="Trash7" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(4006, 5488)
+
+[node name="Trash8" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(2490, 5296)
+
+[node name="Trash9" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(2931, 6947)
+
+[node name="Trash10" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(5868, 4816)
+
+[node name="Trash11" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(6809, 5852)
+
+[node name="Trash12" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(5600, 6428)
+
+[node name="Trash13" parent="." instance=ExtResource("19_edr7y")]
+position = Vector2(5600, 6428)
+
+[node name="Waste" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(5005, 4932)
+
+[node name="Waste2" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(3297, 4337)
+
+[node name="Waste3" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(3719, 6429)
+
+[node name="Waste4" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(5715, 4183)
+
+[node name="Waste5" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(4007, 4758)
+
+[node name="Waste6" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(4602, 5756)
+
+[node name="Waste7" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(3220, 5161)
+
+[node name="Waste8" parent="." instance=ExtResource("20_kq12w")]
+position = Vector2(5869, 5622)
+
+[node name="Wreck" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(37470, -27363)
+
+[node name="Wreck2" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(43002, -29367)
+
+[node name="Wreck3" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(49416, -25759)
+
+[node name="Wreck4" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(52623, -29688)
+
+[node name="Wreck5" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(56472, -26802)
+
+[node name="Wreck6" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(37630, -33377)
+
+[node name="Wreck7" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(44525, -33698)
+
+[node name="Wreck8" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(48694, -31854)
+
+[node name="Wreck9" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(55028, -32977)
+
+[node name="Wreck10" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(60560, -31774)
+
+[node name="Wreck11" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(30252, -34260)
+
+[node name="Wreck12" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(64569, -32576)
+
+[node name="Wreck13" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(62244, -28808)
+
+[node name="Wreck14" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(59117, -22634)
+
+[node name="Wreck15" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(54146, -22313)
+
+[node name="Wreck16" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(28809, -29128)
+
+[node name="Wreck17" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(23227, -33987)
+
+[node name="Kelp59" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(24689, -35253)
+
+[node name="Kelp60" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(26911, -28834)
+
+[node name="Kelp61" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(35716, -33236)
+
+[node name="Kelp62" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(41435, -28340)
+
+[node name="Kelp63" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(48553, -30192)
+
+[node name="Kelp64" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(51433, -23156)
+
+[node name="Kelp65" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(60073, -25913)
+
+[node name="Kelp66" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(63077, -31262)
+
+[node name="Kelp67" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(66410, -27641)
+
+[node name="Kelp68" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(72042, -34297)
+
+[node name="Kelp69" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(19050, -37753)
+
+[node name="Kelp70" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(17002, -45177)
+
+[node name="Kelp71" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(88042, -38521)
+
+[node name="Kelp72" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(91242, -44025)
+
+[node name="Kraken" parent="." instance=ExtResource("14_4v2jo")]
+position = Vector2(53146, -65063)
+
+[node name="Tentacle" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(31642, -64295)
+
+[node name="Tentacle2" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(35354, -50855)
+
+[node name="Tentacle3" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(52378, -45223)
+
+[node name="Tentacle4" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(71834, -52775)
+
+[node name="Tentacle5" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(75162, -68263)
+
+[node name="Tentacle6" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(65946, -80423)
+
+[node name="Tentacle7" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(50714, -84391)
+
+[node name="Tentacle8" parent="." instance=ExtResource("13_iu0sx")]
+position = Vector2(37274, -78887)
+
+[node name="Kelp73" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(23194, -42535)
+
+[node name="Kelp74" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(24730, -49703)
+
+[node name="Kelp75" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(30490, -55335)
+
+[node name="Kelp76" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(34714, -58279)
+
+[node name="Kelp77" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(43034, -60839)
+
+[node name="Kelp78" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(51482, -58535)
+
+[node name="Kelp79" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(48922, -55335)
+
+[node name="Kelp80" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(46490, -51111)
+
+[node name="Kelp81" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(43546, -45607)
+
+[node name="Kelp82" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(42778, -41383)
+
+[node name="Kelp83" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(41626, -36007)
+
+[node name="Kelp84" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(58650, -58535)
+
+[node name="Kelp85" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(61722, -50215)
+
+[node name="Kelp86" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(62569, -45901)
+
+[node name="Kelp87" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(62697, -40141)
+
+[node name="Kelp88" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(61161, -36429)
+
+[node name="Kelp89" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(60905, -54605)
+
+[node name="Kelp90" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(67049, -61645)
+
+[node name="Kelp91" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(70889, -61389)
+
+[node name="Kelp92" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(76265, -60365)
+
+[node name="Kelp93" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(79849, -56141)
+
+[node name="Kelp94" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(84201, -52813)
+
+[node name="Kelp95" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(84713, -48205)
+
+[node name="Kelp96" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(89321, -45517)
+
+[node name="Kelp97" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(84201, -41805)
+
+[node name="Kelp98" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(67049, -39967)
+
+[node name="Kelp99" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(65769, -37151)
+
+[node name="Kelp100" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(69225, -33823)
+
+[node name="Kelp101" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(46057, -36639)
+
+[node name="Kelp102" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(26857, -39711)
+
+[node name="Kelp103" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(26729, -44319)
+
+[node name="Kelp104" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(20969, -47519)
+
+[node name="Kelp105" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(21225, -52255)
+
+[node name="Kelp106" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(26345, -53535)
+
+[node name="Kelp107" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(24809, -68255)
+
+[node name="Kelp108" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(30057, -71199)
+
+[node name="Kelp109" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(40681, -69407)
+
+[node name="Kelp110" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(44009, -70687)
+
+[node name="Kelp111" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(60137, -69919)
+
+[node name="Kelp112" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(66409, -69151)
+
+[node name="Kelp113" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(68969, -71071)
+
+[node name="Kelp114" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(57449, -77343)
+
+[node name="Kelp115" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(59117, -80649)
+
+[node name="Kelp116" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(60653, -87433)
+
+[node name="Kelp117" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(48877, -78601)
+
+[node name="Kelp118" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(44781, -83081)
+
+[node name="Kelp119" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(41837, -88329)
+
+[node name="Kelp120" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(39917, -74377)
+
+[node name="Kelp121" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(33011, -75145)
+
+[node name="Kelp122" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(28403, -79881)
+
+[node name="Kelp123" parent="." instance=ExtResource("18_eu6ph")]
+position = Vector2(32371, -85897)
+
+[node name="Wreck18" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(27034, -62375)
+
+[node name="Wreck19" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(42072, -52382)
+
+[node name="Wreck20" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(46923, -41613)
+
+[node name="Wreck21" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(71662, -46367)
+
+[node name="Wreck22" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(83207, -58009)
+
+[node name="Wreck23" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(72826, -74211)
+
+[node name="Wreck24" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(74572, -81681)
+
+[node name="Wreck25" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(44206, -80129)
+
+[node name="Wreck26" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(47214, -89055)
+
+[node name="Wreck27" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(65841, -87988)
+
+[node name="Wreck28" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(24415, -75085)
+
+[node name="Wreck29" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(38386, -64316)
+
+[node name="Wreck30" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(58954, -47338)
+
+[node name="Wreck31" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(73216, -39480)
+
+[node name="Wreck32" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(75544, -28517)
+
+[node name="Wreck33" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(16849, -29778)
+
+[node name="Wreck34" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(17140, -50637)
+
+[node name="Wreck35" parent="." instance=ExtResource("25_87ddb")]
+position = Vector2(28103, -47338)
+
+[node name="Pufferfish74" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1318, -1559)

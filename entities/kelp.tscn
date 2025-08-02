@@ -8,6 +8,7 @@
 radius = 80.0
 
 [node name="Kelp" instance=ExtResource("1_f6t2x")]
+lock_rotation = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_w34y3")
@@ -19,7 +20,6 @@ texture = ExtResource("2_rs763")
 
 [node name="Consumable" parent="." index="2"]
 ray_size = 150
-draw_gizmo = true
 
 [node name="wave" type="Sprite2D" parent="." index="3"]
 position = Vector2(0, 46)
