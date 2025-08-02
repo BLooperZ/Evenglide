@@ -1,5 +1,6 @@
 @tool
 extends Node2D
+class_name Consumable
 
 @export var num_rays = 10
 @export var ray_size = 20
