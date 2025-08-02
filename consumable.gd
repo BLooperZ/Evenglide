@@ -1,5 +1,6 @@
 @tool
 extends Node2D
+class_name Consumable
 
 @export var num_rays = 10
 @export var ray_size = 20
@@ -12,12 +13,17 @@ var area: Area2D
 var active_collisions := 0
 var current_time_to_consume := 0.
 var is_consuming = false
-@onready var rope: Line2D = get_node("/root/Ropes/Rope")
+var rope: Line2D
 
 
 signal onConsumed
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+		
+	rope = get_node("/root/Ropes/Rope")
+
 	area = Area2D.new()
 	area.name = "DetectionArea"
 	area.collision_layer = 0 # It doesn't exist on any layer

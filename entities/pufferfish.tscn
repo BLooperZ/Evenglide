@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://6kpffveuafgh"]
+
+[ext_resource type="Texture2D" uid="uid://b6a8xoi0l16sn" path="res://textures/objects/pufferfish_open.png" id="1_26nop"]
+[ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="2_5r70p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpg34"]
+radius = 48.0
+
+[node name="Pufferfish" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 17
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vpg34")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("1_26nop")
+
+[node name="Consumable" type="Node2D" parent="." node_paths=PackedStringArray("consume_target")]
+script = ExtResource("2_5r70p")
+num_rays = 8
+ray_size = 200
+draw_gizmo = true
+consume_target = NodePath("..")
+rope_collision_layer = 16
+metadata/_edit_group_ = true
