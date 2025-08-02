@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bixcnb1h8dqt7"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_f6t2x"]
+[ext_resource type="Texture2D" uid="uid://dgfjjddtkcm4i" path="res://textures/export/gmtk icons-35.png" id="2_rs763"]
+[ext_resource type="Texture2D" uid="uid://c4rhiob8i4yhj" path="res://textures/export/gmtk icons-03.png" id="3_rs763"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w34y3"]
+radius = 80.0
+
+[node name="Kelp" instance=ExtResource("1_f6t2x")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_w34y3")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -121)
+scale = Vector2(1.3463, 1.3463)
+texture = ExtResource("2_rs763")
+
+[node name="Consumable" parent="." index="2"]
+ray_size = 150
+draw_gizmo = true
+
+[node name="wave" type="Sprite2D" parent="." index="3"]
+position = Vector2(0, 46)
+texture = ExtResource("3_rs763")

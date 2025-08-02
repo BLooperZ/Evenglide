@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2b0wv8d730md"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_sxrjn"]
+[ext_resource type="Texture2D" uid="uid://cgsijl2fhnce" path="res://textures/export/gmtk icons-13.png" id="2_mpe6k"]
+[ext_resource type="Texture2D" uid="uid://c4rhiob8i4yhj" path="res://textures/export/gmtk icons-03.png" id="3_xg2xy"]
+
+[node name="Tentacle" instance=ExtResource("1_sxrjn")]
+lock_rotation = true
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(580, -3162)
+scale = Vector2(28.4124, 28.4124)
+texture = ExtResource("2_mpe6k")
+
+[node name="wave" type="Sprite2D" parent="." index="3"]
+position = Vector2(103, 449)
+scale = Vector2(27.1875, 25.7268)
+texture = ExtResource("3_xg2xy")

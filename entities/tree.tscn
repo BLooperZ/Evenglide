@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2n5u7ifpa4j1"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_mac5r"]
+[ext_resource type="Texture2D" uid="uid://d2msalxkw34ad" path="res://textures/export/gmtk icons-15.png" id="2_ows8r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t082h"]
+radius = 350.0
+
+[node name="Tree" instance=ExtResource("1_mac5r")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_t082h")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -120)
+scale = Vector2(4.08594, 4.08594)
+texture = ExtResource("2_ows8r")
+
+[node name="Consumable" parent="." index="2"]
+ray_size = 500
