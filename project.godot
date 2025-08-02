@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ropedemo"
-run/main_scene="uid://7s33twtvfc26"
+run/main_scene="uid://bwqnp1xice84"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 

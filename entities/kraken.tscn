@@ -24,7 +24,6 @@ texture = ExtResource("1_xdrgh")
 script = ExtResource("2_cmoye")
 num_rays = 8
 ray_size = 5000
-draw_gizmo = true
 consume_target = NodePath("..")
 rope_collision_layer = 16
 metadata/_custom_type_script = "uid://bg84b72l60ijl"

@@ -74,7 +74,7 @@ scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("9_8dh2l")
 
 [node name="Player2" parent="." instance=ExtResource("7_g7x6c")]
-position = Vector2(0, 400)
+position = Vector2(146, 1085)
 key_up = "p2_up"
 key_down = "p2_down"
 key_left = "p2_left"
@@ -102,12 +102,14 @@ position = Vector2(35693, -2035)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="Tentacle6" parent="Kraken Group" instance=ExtResource("15_cs4po")]
 position = Vector2(27138, -3799)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="Kraken" parent="Kraken Group" instance=ExtResource("11_32aq6")]
 position = Vector2(30173, 917)
@@ -117,27 +119,32 @@ position = Vector2(21229, 3169)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="Tentacle2" parent="Kraken Group" instance=ExtResource("15_cs4po")]
 position = Vector2(38163, 5550)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="Tentacle3" parent="Kraken Group" instance=ExtResource("15_cs4po")]
 position = Vector2(31725, 7490)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="Tentacle4" parent="Kraken Group" instance=ExtResource("15_cs4po")]
 position = Vector2(24316, 6608)
 collision_layer = 1
 collision_mask = 1
 gravity_scale = 1.0
+linear_damp = 0.0
 
 [node name="JellyFish" parent="." instance=ExtResource("17_jx2cy")]
 position = Vector2(807, 898)
+linear_damp = 0.0
 
 [node name="Fish" parent="." instance=ExtResource("10_w1djh")]
 position = Vector2(1109, 882)
@@ -147,24 +154,32 @@ position = Vector2(1521, 892)
 
 [node name="Kelp" parent="." instance=ExtResource("18_o52m7")]
 position = Vector2(1975, 896)
+linear_damp = 0.0
 
 [node name="Trash" parent="." instance=ExtResource("19_pm05h")]
 position = Vector2(2430, 828)
+linear_damp = 0.0
 
 [node name="Waste" parent="." instance=ExtResource("20_wybf1")]
 position = Vector2(2989, 760)
+linear_damp = 0.0
 
 [node name="Fruit" parent="." instance=ExtResource("21_o52m7")]
 position = Vector2(3633, 676)
+linear_damp = 0.0
 
 [node name="JerryFish" parent="." instance=ExtResource("22_pm05h")]
 position = Vector2(4420, 571)
+linear_damp = 0.0
 
 [node name="Giraffish" parent="." instance=ExtResource("23_utqnl")]
 position = Vector2(5338, 552)
+linear_damp = 0.0
 
 [node name="Tree" parent="." instance=ExtResource("24_64bsm")]
 position = Vector2(6377, 502)
+linear_damp = 0.0
 
 [node name="Wreck" parent="." instance=ExtResource("25_64bsm")]
 position = Vector2(7551, 455)
+linear_damp = 0.0

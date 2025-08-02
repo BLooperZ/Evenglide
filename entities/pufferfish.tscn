@@ -10,6 +10,7 @@ radius = 48.0
 collision_layer = 32
 collision_mask = 17
 gravity_scale = 0.0
+linear_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vpg34")
@@ -22,7 +23,6 @@ texture = ExtResource("1_26nop")
 script = ExtResource("2_5r70p")
 num_rays = 8
 ray_size = 130
-draw_gizmo = true
 consume_target = NodePath("..")
 rope_collision_layer = 16
 metadata/_edit_group_ = true
