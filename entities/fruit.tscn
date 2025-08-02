@@ -18,4 +18,3 @@ texture = ExtResource("2_6h0n8")
 
 [node name="Consumable" parent="." index="2"]
 ray_size = 300
-draw_gizmo = true

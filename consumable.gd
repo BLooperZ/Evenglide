@@ -90,11 +90,12 @@ func _process(_delta: float) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	if colliding_with_rope():
-		var ray = Vector2.UP
-		var segment_angle = (PI * 2) / num_rays
+	if draw_gizmo:
+		if colliding_with_rope():
+			var ray = Vector2.UP
+			var segment_angle = (PI * 2) / num_rays
 
-		for n in num_rays:
-			draw_line(Vector2.ZERO, ray.rotated(segment_angle * n) * ray_size, Color.ORANGE, 2)
-	else:
-		draw_circle(Vector2.ZERO, ray_size, Color.ORANGE, false, 2)
+			for n in num_rays:
+				draw_line(Vector2.ZERO, ray.rotated(segment_angle * n) * ray_size, Color.ORANGE, 2)
+		else:
+			draw_circle(Vector2.ZERO, ray_size, Color.ORANGE, false, 2)
