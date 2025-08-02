@@ -9,6 +9,7 @@ const ACCELERATION = 0.01
 @export var key_down: String = "p1_down"
 @export var key_left: String = "p1_left"
 @export var key_right: String = "p1_right"
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var sprite = $Sprite2D
 @onready var spriteScaleX = sprite.scale.x
@@ -30,8 +31,10 @@ func _physics_process(delta: float) -> void:
 	if direction == Vector2.ZERO:
 		direction = wish_dir
 
+	print(direction, wish_dir, direction.angle_to(wish_dir))
+
 	direction = direction.rotated(lerp_angle(0, 0 + direction.angle_to(wish_dir), TURN_RATE)).normalized()
-	
+
 	commitment = lerp(commitment, wish_dir.length(), ACCELERATION)
 
 	velocity = lerp(velocity, direction * SPEED * commitment, 0.7)
@@ -43,9 +46,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.scale.x = 1 * spriteScaleX;
 
-
+	play_sound(1 - wish_dir.length())
 	move_and_slide()
 	queue_redraw()
+
+func play_sound(volume):
+	if tension.length() > 40000:
+		audio_player.pitch_scale = lerp(audio_player.pitch_scale, 1.5, 0.1)
+	else:
+		audio_player.pitch_scale = lerp(audio_player.pitch_scale, 1.0, 0.1)
+	audio_player.volume_db = -4 + -10 * volume
+
 
 func _draw():
 	if wish_dir != Vector2.ZERO:
