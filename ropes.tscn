@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7s33twtvfc26"]
+[gd_scene load_steps=26 format=3 uid="uid://7s33twtvfc26"]
 
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
@@ -15,6 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://6kpffveuafgh" path="res://entities/pufferfish.tscn" id="12_05mpk"]
 [ext_resource type="Texture2D" uid="uid://c75ch0shc8s8a" path="res://textures/export/gmtk icons-06.png" id="12_w1djh"]
 [ext_resource type="AudioStream" uid="uid://bh1h6mt0e6kfq" path="res://sounds/Heaving2.ogg" id="15_8dh2l"]
+[ext_resource type="PackedScene" uid="uid://d2b0wv8d730md" path="res://entities/tentacle.tscn" id="15_cs4po"]
+[ext_resource type="PackedScene" uid="uid://dwpsv3ow6cdpo" path="res://entities/jellyfish.tscn" id="17_jx2cy"]
+[ext_resource type="PackedScene" uid="uid://bixcnb1h8dqt7" path="res://entities/kelp.tscn" id="18_o52m7"]
+[ext_resource type="PackedScene" uid="uid://ceuj1bvvrisc0" path="res://entities/trash.tscn" id="19_pm05h"]
+[ext_resource type="PackedScene" uid="uid://bifh1r1f7fh" path="res://entities/waste.tscn" id="20_wybf1"]
+[ext_resource type="PackedScene" uid="uid://4boep6krmy4e" path="res://entities/fruit.tscn" id="21_o52m7"]
+[ext_resource type="PackedScene" uid="uid://bvl65unk8vtxg" path="res://entities/jerry_fish.tscn" id="22_pm05h"]
+[ext_resource type="PackedScene" uid="uid://ek47oysq81b" path="res://entities/giraffish.tscn" id="23_utqnl"]
+[ext_resource type="PackedScene" uid="uid://c2n5u7ifpa4j1" path="res://entities/tree.tscn" id="24_64bsm"]
+[ext_resource type="PackedScene" uid="uid://d2ios64upe3f" path="res://entities/wreck.tscn" id="25_64bsm"]
 
 [node name="Ropes" type="Node2D"]
 
@@ -74,15 +84,6 @@ key_right = "p2_right"
 scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("9_05mpk")
 
-[node name="Fish" parent="." instance=ExtResource("10_w1djh")]
-position = Vector2(1109, 882)
-
-[node name="Kraken" parent="." instance=ExtResource("11_32aq6")]
-position = Vector2(30173, 917)
-
-[node name="Pufferfish" parent="." instance=ExtResource("12_05mpk")]
-position = Vector2(1521, 892)
-
 [node name="Center Line" type="Line2D" parent="."]
 texture_repeat = 2
 points = PackedVector2Array(10, 1073, 26279, 1057)
@@ -93,3 +94,77 @@ texture_mode = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_8dh2l")
 autoplay = true
+
+[node name="Kraken Group" type="Node2D" parent="."]
+
+[node name="Tentacle5" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(35693, -2035)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="Tentacle6" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(27138, -3799)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="Kraken" parent="Kraken Group" instance=ExtResource("11_32aq6")]
+position = Vector2(30173, 917)
+
+[node name="Tentacle" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(21229, 3169)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="Tentacle2" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(38163, 5550)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="Tentacle3" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(31725, 7490)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="Tentacle4" parent="Kraken Group" instance=ExtResource("15_cs4po")]
+position = Vector2(24316, 6608)
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 1.0
+
+[node name="JellyFish" parent="." instance=ExtResource("17_jx2cy")]
+position = Vector2(807, 898)
+
+[node name="Fish" parent="." instance=ExtResource("10_w1djh")]
+position = Vector2(1109, 882)
+
+[node name="Pufferfish" parent="." instance=ExtResource("12_05mpk")]
+position = Vector2(1521, 892)
+
+[node name="Kelp" parent="." instance=ExtResource("18_o52m7")]
+position = Vector2(1975, 896)
+
+[node name="Trash" parent="." instance=ExtResource("19_pm05h")]
+position = Vector2(2430, 828)
+
+[node name="Waste" parent="." instance=ExtResource("20_wybf1")]
+position = Vector2(2989, 760)
+
+[node name="Fruit" parent="." instance=ExtResource("21_o52m7")]
+position = Vector2(3633, 676)
+
+[node name="JerryFish" parent="." instance=ExtResource("22_pm05h")]
+position = Vector2(4420, 571)
+
+[node name="Giraffish" parent="." instance=ExtResource("23_utqnl")]
+position = Vector2(5338, 552)
+
+[node name="Tree" parent="." instance=ExtResource("24_64bsm")]
+position = Vector2(6377, 502)
+
+[node name="Wreck" parent="." instance=ExtResource("25_64bsm")]
+position = Vector2(7551, 455)

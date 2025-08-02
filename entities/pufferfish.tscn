@@ -21,7 +21,7 @@ texture = ExtResource("1_26nop")
 [node name="Consumable" type="Node2D" parent="." node_paths=PackedStringArray("consume_target")]
 script = ExtResource("2_5r70p")
 num_rays = 8
-ray_size = 200
+ray_size = 130
 draw_gizmo = true
 consume_target = NodePath("..")
 rope_collision_layer = 16

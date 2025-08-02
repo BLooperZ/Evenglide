@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2ios64upe3f"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_gedfh"]
+[ext_resource type="Texture2D" uid="uid://dogbvyxijvkmt" path="res://textures/export/gmtk icons-34.png" id="2_noucc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wlwwm"]
+radius = 400.0
+
+[node name="Wreck" instance=ExtResource("1_gedfh")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_wlwwm")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -105)
+scale = Vector2(5.10156, 5.10156)
+texture = ExtResource("2_noucc")
+
+[node name="Consumable" parent="." index="2"]
+ray_size = 550

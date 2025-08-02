@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb26uj3h45n62"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_63asv"]
+[ext_resource type="Texture2D" uid="uid://bagahvtsniavi" path="res://textures/export/gmtk icons-16.png" id="2_pj317"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqx1n"]
+radius = 354.993
+
+[node name="Island" instance=ExtResource("1_63asv")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_oqx1n")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -391)
+scale = Vector2(7.23735, 7.23735)
+texture = ExtResource("2_pj317")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceuj1bvvrisc0"]
+
+[ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_i6thq"]
+[ext_resource type="Texture2D" uid="uid://cyclecaria8wb" path="res://textures/export/gmtk icons-28.png" id="2_huv02"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hua74"]
+radius = 100.0
+
+[node name="Trash" instance=ExtResource("1_i6thq")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_hua74")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -35)
+scale = Vector2(1.26848, 1.26848)
+texture = ExtResource("2_huv02")
+
+[node name="Consumable" parent="." index="2"]
+ray_size = 200
+draw_gizmo = true

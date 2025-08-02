@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsm6ofx8u0hi2"]
+[gd_scene load_steps=5 format=3 uid="uid://bsm6ofx8u0hi2"]
 
 [ext_resource type="Texture2D" uid="uid://klsndgpwkdwe" path="res://textures/objects/kraken.png" id="1_xdrgh"]
 [ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="2_cmoye"]
+[ext_resource type="Texture2D" uid="uid://c4rhiob8i4yhj" path="res://textures/export/gmtk icons-03.png" id="3_cmoye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpg34"]
 radius = 3517.21
@@ -27,3 +28,8 @@ draw_gizmo = true
 consume_target = NodePath("..")
 rope_collision_layer = 16
 metadata/_custom_type_script = "uid://bg84b72l60ijl"
+
+[node name="wave" type="Sprite2D" parent="."]
+position = Vector2(133, 2650)
+scale = Vector2(47.5938, 47.5938)
+texture = ExtResource("3_cmoye")
