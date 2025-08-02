@@ -3,12 +3,16 @@ extends Node2D
 
 @export var num_rays = 10
 @export var ray_size = 20
+@export var time_to_consume_seconds := 1.
 @export var draw_gizmo = false
 @export var consume_target: Node2D
 @export_flags_2d_physics var rope_collision_layer
 
 var area: Area2D
 var active_collisions := 0
+var current_time_to_consume := 0.
+var is_consuming = false
+@onready var rope: Line2D = get_node("/root/Ropes/Rope")
 
 
 signal onConsumed
@@ -32,19 +36,23 @@ func _ready() -> void:
 	area.body_exited.connect(func(_r): active_collisions -= 1)
 
 func is_covered_by_rope() -> bool:
-	var space_state = get_world_2d().direct_space_state
-
-
-	var ray = Vector2.UP
 	var segment_angle = (PI * 2) / num_rays
+	var polyline = rope.points
+	var point = global_position
 
 	for n in num_rays:
-		var query := PhysicsRayQueryParameters2D.create(global_position, global_position + (ray.rotated(segment_angle * n) * ray_size))
-		query.collision_mask = rope_collision_layer # Only detect objects on this layer
+		var ray = Vector2.UP.rotated(segment_angle * n) * ray_size
+		var hit = false
 
-		var result := space_state.intersect_ray(query)
+		for j in range(polyline.size() - 1):
+			var a = polyline[j]
+			var b = polyline[j + 1]
 
-		if !result:
+			if Geometry2D.segment_intersects_segment(point, point + ray, a, b) != null:
+				hit = true
+				break
+
+		if !hit:
 			return false
 	
 	return true
@@ -56,10 +64,22 @@ func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		if colliding_with_rope():
 			if is_covered_by_rope():
-				onConsumed.emit()
-				consume_target.queue_free()
+				current_time_to_consume += delta
+				is_consuming = true
 
-func _process(delta: float) -> void:
+				if current_time_to_consume >= time_to_consume_seconds:
+					current_time_to_consume = 0
+					is_consuming = false
+
+					onConsumed.emit()
+					consume_target.queue_free()
+			else:
+				current_time_to_consume = 0
+				is_consuming = false
+		
+		consume_target.modulate = lerp(Color.WHITE, Color.RED, min(current_time_to_consume, time_to_consume_seconds) / time_to_consume_seconds)
+
+func _process(_delta: float) -> void:
 	if draw_gizmo:
 		queue_redraw()
 

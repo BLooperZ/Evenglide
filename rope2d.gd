@@ -1,4 +1,5 @@
 extends Line2D
+class_name Rope2D
 
 @export var segment_scene: PackedScene
 
