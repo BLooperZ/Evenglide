@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
 [ext_resource type="Texture2D" uid="uid://7erl8jpo4g4a" path="res://textures/ship.png" id="4_2hbx5"]
 [ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_wbbfn"]
+[ext_resource type="Shader" uid="uid://m2obokfiym3p" path="res://shaders/water2.gdshader" id="5_32aq6"]
 [ext_resource type="Texture2D" uid="uid://dyol6j0lj2swd" path="res://textures/ship-p2.png" id="5_vpg34"]
-[ext_resource type="Shader" uid="uid://cs3e78axi08jp" path="res://shaders/waterShader.res" id="7_hm786"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="7_tnijs"]
 [ext_resource type="Texture2D" uid="uid://cxodac186hlvn" path="res://textures/objects/fish.png" id="10_hf606"]
 [ext_resource type="Texture2D" uid="uid://klsndgpwkdwe" path="res://textures/objects/kraken.png" id="11_w1djh"]
@@ -15,7 +15,13 @@
 [ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="13_32aq6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wbbfn"]
-shader = ExtResource("7_hm786")
+shader = ExtResource("5_32aq6")
+shader_parameter/WATER_COL = Color(0.176471, 0.635294, 0.85098, 1)
+shader_parameter/WATER2_COL = Color(0.0588235, 0.529412, 0.776471, 1)
+shader_parameter/FOAM_COL = Color(0.87451, 0.988235, 1, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnijs"]
 radius = 70.1783
@@ -123,7 +129,7 @@ texture = ExtResource("12_32aq6")
 script = ExtResource("13_32aq6")
 num_rays = 8
 ray_size = 200
-time_to_consume_seconds = 1
 draw_gizmo = true
 consume_target = NodePath("..")
 rope_collision_layer = 16
+metadata/_edit_group_ = true
