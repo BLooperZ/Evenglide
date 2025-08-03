@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	if direction == Vector2.ZERO:
 		direction = wish_dir
 
-	print(direction, wish_dir, direction.angle_to(wish_dir))
+	# print(direction, wish_dir, direction.angle_to(wish_dir))
 
 	direction = direction.rotated(lerp_angle(0, 0 + direction.angle_to(wish_dir), TURN_RATE)).normalized()
 

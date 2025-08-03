@@ -15,7 +15,7 @@ var active_collisions := 0
 var current_time_to_consume := 0.
 var is_consuming = false
 var rope: Line2D
-
+var license: License
 
 signal onConsumed
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 		return
 		
 	rope = get_node("/root/Ropes/Rope")
+	license = get_node("/root/Ropes/License")
 
 	area = Area2D.new()
 	area.name = "DetectionArea"
@@ -69,28 +70,31 @@ func colliding_with_rope():
 
 func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
+		var can_consume = license.can_eat_target(consume_target)
+		
 		if colliding_with_rope():
 			if is_covered_by_rope():
 				current_time_to_consume += delta
 				is_consuming = true
 
 				if current_time_to_consume >= time_to_consume_seconds:
-					current_time_to_consume = 0
-					is_consuming = false
-					onConsumed.emit()
-					for child in consume_target.get_children():
-						if child is CollisionShape2D or child is Sprite2D:
-							remove_child(child)
-							child.queue_free()
-					audio_player.pitch_scale = 150.0 / min(ray_size, 500)
-					audio_player.play()
-					await audio_player.finished
-					consume_target.queue_free()
+					if can_consume:
+						current_time_to_consume = 0
+						is_consuming = false
+						onConsumed.emit()
+						for child in consume_target.get_children():
+							if child is CollisionShape2D or child is Sprite2D:
+								remove_child(child)
+								child.queue_free()
+						audio_player.pitch_scale = 150.0 / min(ray_size, 500)
+						audio_player.play()
+						await audio_player.finished
+						consume_target.queue_free()
 			else:
 				current_time_to_consume = 0
 				is_consuming = false
 		
-		consume_target.modulate = lerp(Color.WHITE, Color.RED, min(current_time_to_consume, time_to_consume_seconds) / time_to_consume_seconds)
+		consume_target.modulate = lerp(Color.WHITE, Color.GREEN if can_consume else Color.RED, min(current_time_to_consume, time_to_consume_seconds) / time_to_consume_seconds)
 
 func _process(_delta: float) -> void:
 	if draw_gizmo:
