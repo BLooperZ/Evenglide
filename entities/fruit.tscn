@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nwln580mhvqc" path="res://entities/entity_base.tscn" id="1_l3xob"]
 [ext_resource type="Texture2D" uid="uid://bi47qkeyj5026" path="res://textures/export/gmtk icons-36.png" id="2_6h0n8"]
-[ext_resource type="Script" uid="uid://bxvchgrt5yctf" path="res://entities/fruit.gd" id="2_6kqrw"]
+[ext_resource type="Script" path="res://entities/fruit.gd" id="2_6kqrw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kqrw"]
 radius = 124.169

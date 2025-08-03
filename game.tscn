@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwqnp1xice84"]
+[gd_scene load_steps=48 format=3 uid="uid://bwqnp1xice84"]
 
 [ext_resource type="Script" uid="uid://dqaw6guwjo4aj" path="res://license.gd" id="1_i2p71"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vaj68"]
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="2_i2p71"]
-[ext_resource type="Script" uid="uid://bwwlrcpmvw6vn" path="res://licenseTier.gd" id="2_xa8c5"]
+[ext_resource type="Script" path="res://licenseTier.gd" id="2_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="3_xa8c5"]
-[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_5b14r"]
+[ext_resource type="Script" path="res://CameraFollow.gd" id="4_5b14r"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="5_bnpwn"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="6_36jdj"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="7_xfvwf"]
@@ -16,17 +16,32 @@
 [ext_resource type="AudioStream" uid="uid://bh1h6mt0e6kfq" path="res://sounds/Heaving2.ogg" id="12_aa0lp"]
 [ext_resource type="PackedScene" uid="uid://d2b0wv8d730md" path="res://entities/tentacle.tscn" id="13_iu0sx"]
 [ext_resource type="PackedScene" uid="uid://bsm6ofx8u0hi2" path="res://entities/kraken.tscn" id="14_4v2jo"]
+[ext_resource type="Texture2D" uid="uid://cxodac186hlvn" path="res://textures/objects/fish.png" id="14_eu6ph"]
+[ext_resource type="Texture2D" uid="uid://bi47qkeyj5026" path="res://textures/export/gmtk icons-36.png" id="15_edr7y"]
 [ext_resource type="PackedScene" uid="uid://dwpsv3ow6cdpo" path="res://entities/jellyfish.tscn" id="15_l1i01"]
+[ext_resource type="Texture2D" uid="uid://oqutpnlxrbi2" path="res://textures/export/gmtk icons-21.png" id="16_kq12w"]
 [ext_resource type="PackedScene" uid="uid://bobxy5tvltjh6" path="res://entities/fish.tscn" id="16_r62pu"]
 [ext_resource type="PackedScene" uid="uid://6kpffveuafgh" path="res://entities/pufferfish.tscn" id="17_klri6"]
+[ext_resource type="Texture2D" uid="uid://c4rhiob8i4yhj" path="res://textures/export/gmtk icons-03.png" id="17_t46w6"]
 [ext_resource type="PackedScene" uid="uid://bixcnb1h8dqt7" path="res://entities/kelp.tscn" id="18_eu6ph"]
 [ext_resource type="PackedScene" uid="uid://ceuj1bvvrisc0" path="res://entities/trash.tscn" id="19_edr7y"]
+[ext_resource type="Texture2D" uid="uid://dm3m3aqsqqc5y" path="res://textures/export/gmtk icons-33.png" id="19_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://bprmyu2ruh4bq" path="res://textures/export/gmtk icons-32.png" id="20_0de7l"]
 [ext_resource type="PackedScene" uid="uid://bifh1r1f7fh" path="res://entities/waste.tscn" id="20_kq12w"]
+[ext_resource type="Texture2D" uid="uid://dgfjjddtkcm4i" path="res://textures/export/gmtk icons-35.png" id="21_87ddb"]
 [ext_resource type="PackedScene" uid="uid://4boep6krmy4e" path="res://entities/fruit.tscn" id="21_t46w6"]
 [ext_resource type="PackedScene" uid="uid://bvl65unk8vtxg" path="res://entities/jerry_fish.tscn" id="22_m28ev"]
+[ext_resource type="Texture2D" uid="uid://klsndgpwkdwe" path="res://textures/objects/kraken.png" id="22_mljfx"]
 [ext_resource type="PackedScene" uid="uid://ek47oysq81b" path="res://entities/giraffish.tscn" id="23_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://b6a8xoi0l16sn" path="res://textures/objects/pufferfish_open.png" id="23_qpefm"]
 [ext_resource type="PackedScene" uid="uid://c2n5u7ifpa4j1" path="res://entities/tree.tscn" id="24_0de7l"]
+[ext_resource type="Texture2D" uid="uid://cgsijl2fhnce" path="res://textures/export/gmtk icons-13.png" id="24_tb2lt"]
 [ext_resource type="PackedScene" uid="uid://d2ios64upe3f" path="res://entities/wreck.tscn" id="25_87ddb"]
+[ext_resource type="Texture2D" uid="uid://cyclecaria8wb" path="res://textures/export/gmtk icons-28.png" id="25_cfc7e"]
+[ext_resource type="Script" uid="uid://dx3l036wmcmij" path="res://license_hide.gd" id="25_edr7y"]
+[ext_resource type="Texture2D" uid="uid://d2msalxkw34ad" path="res://textures/export/gmtk icons-15.png" id="26_gh0px"]
+[ext_resource type="Texture2D" uid="uid://begqvi8b8mc3" path="res://textures/export/gmtk icons-31.png" id="27_v33yl"]
+[ext_resource type="Texture2D" uid="uid://dogbvyxijvkmt" path="res://textures/export/gmtk icons-34.png" id="28_2tki7"]
 
 [sub_resource type="Resource" id="Resource_5b14r"]
 script = ExtResource("2_xa8c5")
@@ -109,6 +124,137 @@ z_index = 4096
 position = Vector2(-1484, 790)
 scale = Vector2(0.366176, 0.366176)
 texture = ExtResource("11_xa8c5")
+
+[node name="Node2D" type="Node2D" parent="Camera2D/LicenseSprite"]
+position = Vector2(13.6546, 32.7711)
+scale = Vector2(0.15, 0.15)
+
+[node name="Fish2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-4041.77, -509.773)
+scale = Vector2(4.74708, 4.74708)
+texture = ExtResource("14_eu6ph")
+script = ExtResource("25_edr7y")
+
+[node name="Fruit2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-5425.44, -600.804)
+scale = Vector2(5.46185, 5.46185)
+texture = ExtResource("15_edr7y")
+script = ExtResource("25_edr7y")
+
+[node name="Giraffish" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-3550.2, 1911.65)
+scale = Vector2(6.00804, 6.00804)
+texture = ExtResource("16_kq12w")
+script = ExtResource("25_edr7y")
+req = 2
+
+[node name="wave" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D/Giraffish"]
+position = Vector2(21.8174, 127.727)
+scale = Vector2(0.909091, 0.909091)
+texture = ExtResource("17_t46w6")
+
+[node name="JellyFish" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-637.217, -436.948)
+scale = Vector2(6.3035, 6.3035)
+texture = ExtResource("19_lwlx3")
+script = ExtResource("25_edr7y")
+req = 1
+
+[node name="JerryFish" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-5516.47, 2075.5)
+scale = Vector2(5.46185, 5.46185)
+texture = ExtResource("20_0de7l")
+script = ExtResource("25_edr7y")
+req = 2
+
+[node name="Kelp" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1165.2, -691.835)
+scale = Vector2(6.7315, 6.7315)
+texture = ExtResource("21_87ddb")
+script = ExtResource("25_edr7y")
+req = 1
+
+[node name="wave" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D/Kelp"]
+position = Vector2(0, 124.044)
+scale = Vector2(0.742777, 0.742777)
+texture = ExtResource("17_t46w6")
+
+[node name="Kraken" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5152.35, 1729.59)
+scale = Vector2(8.19278, 8.19278)
+texture = ExtResource("22_mljfx")
+script = ExtResource("25_edr7y")
+req = 4
+
+[node name="wave" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D/Kraken"]
+position = Vector2(-3.33325, 122)
+texture = ExtResource("17_t46w6")
+
+[node name="Pufferfish" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-2293.98, -473.36)
+scale = Vector2(4.375, 4.375)
+texture = ExtResource("23_qpefm")
+script = ExtResource("25_edr7y")
+
+[node name="Tentacle2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3058.64, 1747.79)
+scale = Vector2(8.19278, 8.19278)
+texture = ExtResource("24_tb2lt")
+script = ExtResource("25_edr7y")
+req = 4
+
+[node name="wave" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D/Tentacle2"]
+position = Vector2(-26.3335, 122.333)
+scale = Vector2(1, 0.946333)
+texture = ExtResource("17_t46w6")
+
+[node name="Trash2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3076.84, -582.597)
+scale = Vector2(6.3424, 6.3424)
+texture = ExtResource("25_cfc7e")
+script = ExtResource("25_edr7y")
+req = 1
+
+[node name="Tree" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1383.67, 2111.92)
+scale = Vector2(6.55423, 6.55423)
+texture = ExtResource("26_gh0px")
+script = ExtResource("25_edr7y")
+req = 3
+
+[node name="Waste2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5188.76, -400.535)
+rotation = 0.362663
+scale = Vector2(8.5603, 8.5603)
+texture = ExtResource("27_v33yl")
+script = ExtResource("25_edr7y")
+req = 1
+
+[node name="Wreck2" type="Sprite2D" parent="Camera2D/LicenseSprite/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1019.55, 2039.09)
+scale = Vector2(6.82732, 6.82732)
+texture = ExtResource("28_2tki7")
+script = ExtResource("25_edr7y")
+req = 3
+
+[node name="Fruit3" type="Sprite2D" parent="Camera2D/LicenseSprite"]
+z_index = 300
+position = Vector2(748.274, -382.33)
+scale = Vector2(2, 2)
+texture = ExtResource("15_edr7y")
 
 [node name="Player1" parent="." instance=ExtResource("8_dhpj7")]
 
@@ -1702,3 +1848,6 @@ position = Vector2(18445, -15079)
 
 [node name="Fruit5" parent="." instance=ExtResource("21_t46w6")]
 position = Vector2(-6059, 3469)
+
+[node name="Fruit6" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(-1215, 1673)
