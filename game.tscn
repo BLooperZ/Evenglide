@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwqnp1xice84"]
+[gd_scene load_steps=33 format=3 uid="uid://bwqnp1xice84"]
 
 [ext_resource type="Script" uid="uid://dqaw6guwjo4aj" path="res://license.gd" id="1_i2p71"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vaj68"]
@@ -31,14 +31,38 @@
 [sub_resource type="Resource" id="Resource_5b14r"]
 script = ExtResource("2_xa8c5")
 grants = Array[PackedScene]([ExtResource("16_r62pu"), ExtResource("21_t46w6"), ExtResource("17_klri6")])
-color = Color(3.7542e-06, 0.911877, 0.649406, 1)
+color = Color(0.91, 0.91, 0.91, 1)
+metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
+
+[sub_resource type="Resource" id="Resource_xa8c5"]
+script = ExtResource("2_xa8c5")
+grants = Array[PackedScene]([ExtResource("15_l1i01"), ExtResource("18_eu6ph"), ExtResource("19_edr7y"), ExtResource("20_kq12w")])
+color = Color(0, 1, 0.316667, 1)
+metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
+
+[sub_resource type="Resource" id="Resource_bnpwn"]
+script = ExtResource("2_xa8c5")
+grants = Array[PackedScene]([ExtResource("22_m28ev"), ExtResource("23_lwlx3")])
+color = Color(0, 0.0333333, 1, 1)
+metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
+
+[sub_resource type="Resource" id="Resource_36jdj"]
+script = ExtResource("2_xa8c5")
+grants = Array[PackedScene]([ExtResource("25_87ddb"), ExtResource("24_0de7l")])
+color = Color(0.8, 0, 1, 1)
+metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
+
+[sub_resource type="Resource" id="Resource_xfvwf"]
+script = ExtResource("2_xa8c5")
+grants = Array[PackedScene]([ExtResource("14_4v2jo"), ExtResource("13_iu0sx")])
+color = Color(1, 0.616667, 0, 1)
 metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
 
 [node name="Ropes" type="Node2D"]
 
 [node name="License" type="Node2D" parent="." node_paths=PackedStringArray("license_sprite")]
 script = ExtResource("1_i2p71")
-tiers = Array[ExtResource("2_xa8c5")]([SubResource("Resource_5b14r")])
+tiers = Array[ExtResource("2_xa8c5")]([SubResource("Resource_5b14r"), SubResource("Resource_xa8c5"), SubResource("Resource_bnpwn"), SubResource("Resource_36jdj"), SubResource("Resource_xfvwf")])
 license_sprite = NodePath("../Camera2D/LicenseSprite")
 
 [node name="Rope" type="Line2D" parent="." node_paths=PackedStringArray("player1", "player2")]
