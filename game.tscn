@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="2_i2p71"]
 [ext_resource type="Script" uid="uid://bwwlrcpmvw6vn" path="res://licenseTier.gd" id="2_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="3_xa8c5"]
-[ext_resource type="Script" path="res://CameraFollow.gd" id="4_5b14r"]
+[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_5b14r"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="5_bnpwn"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="6_36jdj"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="7_xfvwf"]
@@ -30,7 +30,7 @@
 
 [sub_resource type="Resource" id="Resource_5b14r"]
 script = ExtResource("2_xa8c5")
-grants = Array[PackedScene]([ExtResource("16_r62pu")])
+grants = Array[PackedScene]([ExtResource("16_r62pu"), ExtResource("21_t46w6"), ExtResource("17_klri6")])
 color = Color(3.7542e-06, 0.911877, 0.649406, 1)
 metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
 
@@ -1669,3 +1669,12 @@ position = Vector2(12767.1, -9738.58)
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(0.22, 0.22)
+
+[node name="Fruit3" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(4495, 5152)
+
+[node name="Fruit4" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(18445, -15079)
+
+[node name="Fruit5" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(-6059, 3469)
