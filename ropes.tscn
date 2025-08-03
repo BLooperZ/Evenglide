@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
-[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_wbbfn"]
+[ext_resource type="Script" path="res://CameraFollow.gd" id="4_wbbfn"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="5_cs4po"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="7_be6iy"]
 [ext_resource type="PackedScene" uid="uid://cumjad5g6ro80" path="res://entities/player_1.tscn" id="7_g7x6c"]
@@ -38,7 +38,7 @@ script = ExtResource("1_6gfnu")
 segment_scene = ExtResource("2_mms8q")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
-num_segments = 12
+num_segments = 16
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
 zoom = Vector2(0.3, 0.3)
@@ -74,7 +74,7 @@ scale = Vector2(0.726563, 0.726563)
 texture = ExtResource("9_8dh2l")
 
 [node name="Player2" parent="." instance=ExtResource("7_g7x6c")]
-position = Vector2(146, 1085)
+position = Vector2(0, 400)
 key_up = "p2_up"
 key_down = "p2_down"
 key_left = "p2_left"
@@ -98,48 +98,42 @@ autoplay = true
 [node name="Kraken Group" type="Node2D" parent="."]
 
 [node name="Tentacle5" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(35693, -2035)
+position = Vector2(9579, -253)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="Tentacle6" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(27138, -3799)
+position = Vector2(8660, 74)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="Kraken" parent="Kraken Group" instance=ExtResource("11_32aq6")]
-position = Vector2(30173, 917)
+position = Vector2(9461, 535)
 
 [node name="Tentacle" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(21229, 3169)
+position = Vector2(9553, 1513)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="Tentacle2" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(38163, 5550)
+position = Vector2(10485, 259)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="Tentacle3" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(31725, 7490)
+position = Vector2(10464, 1205)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="Tentacle4" parent="Kraken Group" instance=ExtResource("15_cs4po")]
-position = Vector2(24316, 6608)
+position = Vector2(8607, 1074)
 collision_layer = 1
 collision_mask = 1
-gravity_scale = 1.0
 linear_damp = 0.0
 
 [node name="JellyFish" parent="." instance=ExtResource("17_jx2cy")]
@@ -173,13 +167,13 @@ position = Vector2(4420, 571)
 linear_damp = 0.0
 
 [node name="Giraffish" parent="." instance=ExtResource("23_utqnl")]
-position = Vector2(5338, 552)
+position = Vector2(5266, 576)
 linear_damp = 0.0
 
 [node name="Tree" parent="." instance=ExtResource("24_64bsm")]
-position = Vector2(6377, 502)
+position = Vector2(6457, 637)
 linear_damp = 0.0
 
 [node name="Wreck" parent="." instance=ExtResource("25_64bsm")]
-position = Vector2(7551, 455)
+position = Vector2(7381, 652)
 linear_damp = 0.0
