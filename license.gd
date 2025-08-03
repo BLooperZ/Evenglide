@@ -17,13 +17,12 @@ func update_fishing_license():
 
 func increment_license_level():
 	license_level += 1
+	license = tiers[license_level]
 	update_fishing_license()
 
 func can_eat_target(node: Node2D):
 	for n in license_level + 1:
 		var tier = tiers[n]
-
-		print(tier.grants)
 
 		for scene in tier.grants:
 			if node.scene_file_path == scene.resource_path:
