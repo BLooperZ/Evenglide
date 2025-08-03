@@ -1,15 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwqnp1xice84"]
+[gd_scene load_steps=29 format=3 uid="uid://bwqnp1xice84"]
 
+[ext_resource type="Script" uid="uid://dqaw6guwjo4aj" path="res://license.gd" id="1_i2p71"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vaj68"]
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="2_i2p71"]
+[ext_resource type="Script" uid="uid://bwwlrcpmvw6vn" path="res://licenseTier.gd" id="2_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="3_xa8c5"]
-[ext_resource type="Script" path="res://CameraFollow.gd" id="4_5b14r"]
+[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_5b14r"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="5_bnpwn"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="6_36jdj"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="7_xfvwf"]
 [ext_resource type="PackedScene" uid="uid://cumjad5g6ro80" path="res://entities/player_1.tscn" id="8_dhpj7"]
 [ext_resource type="Texture2D" uid="uid://krpj41e3drn5" path="res://textures/export/gmtk icons-01.png" id="9_7knny"]
 [ext_resource type="Texture2D" uid="uid://c0mofnmdutgl4" path="res://textures/export/gmtk icons-04.png" id="10_082n1"]
+[ext_resource type="Texture2D" uid="uid://dnk4klx111xxk" path="res://textures/export/fishing-license-37.png" id="11_xa8c5"]
 [ext_resource type="AudioStream" uid="uid://bh1h6mt0e6kfq" path="res://sounds/Heaving2.ogg" id="12_aa0lp"]
 [ext_resource type="PackedScene" uid="uid://d2b0wv8d730md" path="res://entities/tentacle.tscn" id="13_iu0sx"]
 [ext_resource type="PackedScene" uid="uid://bsm6ofx8u0hi2" path="res://entities/kraken.tscn" id="14_4v2jo"]
@@ -25,7 +28,18 @@
 [ext_resource type="PackedScene" uid="uid://c2n5u7ifpa4j1" path="res://entities/tree.tscn" id="24_0de7l"]
 [ext_resource type="PackedScene" uid="uid://d2ios64upe3f" path="res://entities/wreck.tscn" id="25_87ddb"]
 
+[sub_resource type="Resource" id="Resource_5b14r"]
+script = ExtResource("2_xa8c5")
+grants = Array[PackedScene]([ExtResource("16_r62pu"), ExtResource("21_t46w6"), ExtResource("17_klri6")])
+color = Color(3.7542e-06, 0.911877, 0.649406, 1)
+metadata/_custom_type_script = "uid://bwwlrcpmvw6vn"
+
 [node name="Ropes" type="Node2D"]
+
+[node name="License" type="Node2D" parent="." node_paths=PackedStringArray("license_sprite")]
+script = ExtResource("1_i2p71")
+tiers = Array[ExtResource("2_xa8c5")]([SubResource("Resource_5b14r")])
+license_sprite = NodePath("../Camera2D/LicenseSprite")
 
 [node name="Rope" type="Line2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 texture_repeat = 2
@@ -66,65 +80,11 @@ material = ExtResource("7_xfvwf")
 scale = Vector2(17.6953, 17.6953)
 texture = ExtResource("5_bnpwn")
 
-[node name="Pufferfish" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-1457, -1927)
-
-[node name="Pufferfish2" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-1680, -2006)
-
-[node name="Pufferfish3" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-1890, -2360)
-
-[node name="Pufferfish4" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-2021, -2570)
-
-[node name="Pufferfish5" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-2139, -2858)
-
-[node name="Pufferfish6" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-2309, -3068)
-
-[node name="Pufferfish7" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-2532, -3304)
-
-[node name="Pufferfish8" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-2702, -3671)
-
-[node name="Pufferfish9" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-3004, -3855)
-
-[node name="Pufferfish10" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-3319, -3921)
-
-[node name="Pufferfish11" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-3621, -4288)
-
-[node name="Pufferfish12" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-4080, -4432)
-
-[node name="Pufferfish13" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-4447, -4747)
-
-[node name="Pufferfish14" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-4887, -4900)
-
-[node name="Pufferfish15" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-5044, -5123)
-
-[node name="Pufferfish16" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-5477, -5241)
-
-[node name="Pufferfish17" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-5792, -5464)
-
-[node name="Pufferfish18" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-6316, -5438)
-
-[node name="Pufferfish19" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-6683, -5517)
-
-[node name="Pufferfish20" parent="Camera2D/Background" instance=ExtResource("17_klri6")]
-position = Vector2(-6621, -5053)
+[node name="LicenseSprite" type="Sprite2D" parent="Camera2D"]
+z_index = 4096
+position = Vector2(-1484, 790)
+scale = Vector2(0.366176, 0.366176)
+texture = ExtResource("11_xa8c5")
 
 [node name="Player1" parent="." instance=ExtResource("8_dhpj7")]
 
@@ -146,6 +106,66 @@ texture = ExtResource("10_082n1")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_aa0lp")
 autoplay = true
+
+[node name="Pufferfish75" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1457, -1927)
+
+[node name="Pufferfish76" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1680, -2006)
+
+[node name="Pufferfish77" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-1890, -2360)
+
+[node name="Pufferfish78" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2021, -2570)
+
+[node name="Pufferfish79" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2139, -2858)
+
+[node name="Pufferfish80" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2309, -3068)
+
+[node name="Pufferfish81" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2532, -3304)
+
+[node name="Pufferfish82" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-2702, -3671)
+
+[node name="Pufferfish83" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3004, -3855)
+
+[node name="Pufferfish84" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3319, -3921)
+
+[node name="Pufferfish85" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-3621, -4288)
+
+[node name="Pufferfish86" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4080, -4432)
+
+[node name="Pufferfish87" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4447, -4747)
+
+[node name="Pufferfish88" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-4887, -4900)
+
+[node name="Pufferfish89" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5044, -5123)
+
+[node name="Pufferfish90" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5477, -5241)
+
+[node name="Pufferfish91" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-5792, -5464)
+
+[node name="Pufferfish92" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6316, -5438)
+
+[node name="Pufferfish93" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6683, -5517)
+
+[node name="Pufferfish94" parent="." instance=ExtResource("17_klri6")]
+position = Vector2(-6621, -5053)
 
 [node name="Fish" parent="." instance=ExtResource("16_r62pu")]
 position = Vector2(491, -435)
@@ -1649,3 +1669,12 @@ position = Vector2(12767.1, -9738.58)
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(0.22, 0.22)
+
+[node name="Fruit3" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(4495, 5152)
+
+[node name="Fruit4" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(18445, -15079)
+
+[node name="Fruit5" parent="." instance=ExtResource("21_t46w6")]
+position = Vector2(-6059, 3469)
