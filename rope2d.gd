@@ -3,8 +3,8 @@ class_name Rope2D
 
 @export var segment_scene: PackedScene
 
-@export var player1: CharacterBody2D
-@export var player2: CharacterBody2D
+@export var player1: Node2D
+@export var player2: Node2D
 
 @export var num_segments = 8
 
@@ -18,6 +18,38 @@ func create_joint():
 	return joint
 
 var line_data_sources: Array[Node2D] = []
+
+var last_segment
+
+func add_segment() -> void:
+	var prev = last_segment.prev
+	print(last_segment, prev)
+	
+	var pos = (last_segment.global_position + prev.global_position) / 2
+	var seg = segment_scene.instantiate()
+
+	seg.global_position = pos
+	
+	seg.global_rotation = PI / 2 + (last_segment.global_position - prev.global_position).angle()
+	
+	add_child(seg)
+	
+	for child in prev.get_children():
+		if child is PullJoint2D:
+			child.node_b = child.get_path_to(seg)
+
+	var joint = create_joint()
+	#joint.global_position = seg.global_position
+	seg.add_child(joint)
+	joint.node_a = joint.get_path_to(seg)
+	joint.node_b = joint.get_path_to(last_segment)
+	
+	last_segment.prev = seg
+	for child in last_segment.get_children():
+		if child is PullJoint2D:
+			child.node_a = child.get_path_to(seg)
+
+	num_segments += 1
 
 func create_segments() -> void:
 	line_data_sources.clear()
@@ -56,6 +88,8 @@ func create_segments() -> void:
 		last_seg = seg
 		line_data_sources.append(seg)
 
+	last_segment = seg
+
 	joint = create_joint()
 	#joint.global_position = last_seg.global_position
 	seg.add_child(joint)
@@ -75,4 +109,8 @@ func _physics_process(_delta: float) -> void:
 		add_point(link.global_position)
 
 	if Input.is_action_just_released("ui_accept"):
+		num_segments += (num_segments / 5) - 1
 		create_segments()
+		$"../Camera2D".zoom *= 0.92
+		player1.speed += 250
+		player2.speed += 250

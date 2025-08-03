@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const SPEED = 1000.0
+var speed = 10000.0
 const TURN_RATE = 0.035
 const ACCELERATION = 0.01
 
@@ -31,15 +30,13 @@ func _physics_process(delta: float) -> void:
 	if direction == Vector2.ZERO:
 		direction = wish_dir
 
-	print(direction, wish_dir, direction.angle_to(wish_dir))
-
 	direction = direction.rotated(lerp_angle(0, 0 + direction.angle_to(wish_dir), TURN_RATE)).normalized()
 
 	commitment = lerp(commitment, wish_dir.length(), ACCELERATION)
 
-	velocity = lerp(velocity, direction * SPEED * commitment, 0.7)
+	velocity = lerp(velocity, direction * speed * commitment, 0.7)
 
-	velocity -= tension * delta * (velocity.length() / SPEED)
+	velocity -= tension * delta * (velocity.length() / speed)
 
 	if direction.x > 0:
 		sprite.scale.x = -1 * spriteScaleX;

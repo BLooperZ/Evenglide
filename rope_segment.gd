@@ -11,9 +11,9 @@ func _physics_process(delta: float) -> void:
 	var posp = prev.global_position
 	var distance = posn.distance_to(posp)
 
-	#rotation = 0
+	rotation = 0
 	var shape = shape_node.shape
-	shape.height = distance / 2
+	shape.height = distance
 	shape.radius = 10
 
-	#global_rotation = posn.angle_to(posp)
+	global_rotation = PI / 2 + (posn - posp).angle()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="1_6gfnu"]
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vpg34"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="2_mms8q"]
-[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_wbbfn"]
+[ext_resource type="Script" path="res://CameraFollow.gd" id="4_wbbfn"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="5_cs4po"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="7_be6iy"]
 [ext_resource type="PackedScene" uid="uid://cumjad5g6ro80" path="res://entities/player_1.tscn" id="7_g7x6c"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c2n5u7ifpa4j1" path="res://entities/tree.tscn" id="24_64bsm"]
 [ext_resource type="PackedScene" uid="uid://d2ios64upe3f" path="res://entities/wreck.tscn" id="25_64bsm"]
 
-[node name="Ropes" type="Node2D"]
+[node name="Ropes2" type="Node2D"]
 
 [node name="Rope" type="Line2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 texture_repeat = 2
@@ -38,7 +38,7 @@ script = ExtResource("1_6gfnu")
 segment_scene = ExtResource("2_mms8q")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
-num_segments = 12
+num_segments = 10
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
 zoom = Vector2(0.3, 0.3)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dmeqamvik620f" path="res://textures/rope-h.png" id="1_vaj68"]
 [ext_resource type="Script" uid="uid://ddpybuyuyde1m" path="res://rope2d.gd" id="2_i2p71"]
 [ext_resource type="PackedScene" uid="uid://d3rtddoo4e0gp" path="res://rope_segment.tscn" id="3_xa8c5"]
-[ext_resource type="Script" uid="uid://ci2lemeyg6vjh" path="res://CameraFollow.gd" id="4_5b14r"]
+[ext_resource type="Script" path="res://CameraFollow.gd" id="4_5b14r"]
 [ext_resource type="Texture2D" uid="uid://ko72hw1nej0i" path="res://textures/white.png" id="5_bnpwn"]
 [ext_resource type="Material" uid="uid://cmdfgnk8miw0v" path="res://water2.tres" id="6_36jdj"]
 [ext_resource type="Material" uid="uid://c2ukvjyxim7cd" path="res://water1.tres" id="7_xfvwf"]
@@ -37,7 +37,7 @@ script = ExtResource("2_i2p71")
 segment_scene = ExtResource("3_xa8c5")
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
-num_segments = 12
+num_segments = 20
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("keep_in_view")]
 zoom = Vector2(0.3, 0.3)
