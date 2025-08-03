@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bobxy5tvltjh6"]
+[gd_scene load_steps=5 format=3 uid="uid://bobxy5tvltjh6"]
 
 [ext_resource type="Texture2D" uid="uid://cxodac186hlvn" path="res://textures/objects/fish.png" id="1_5qidh"]
 [ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="2_5t41r"]
+[ext_resource type="AudioStream" uid="uid://bx4xbncwixdwg" path="res://splash2.ogg" id="3_5t41r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mxkc"]
 radius = 34.0147
@@ -25,3 +26,6 @@ ray_size = 110
 consume_target = NodePath("..")
 rope_collision_layer = 16
 metadata/_custom_type_script = "uid://bg84b72l60ijl"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5t41r")

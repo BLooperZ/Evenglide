@@ -8,6 +8,7 @@ class_name Consumable
 @export var draw_gizmo = false
 @export var consume_target: Node2D
 @export_flags_2d_physics var rope_collision_layer
+@onready var audio_player: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 var area: Area2D
 var active_collisions := 0
@@ -76,8 +77,14 @@ func _physics_process(delta: float) -> void:
 				if current_time_to_consume >= time_to_consume_seconds:
 					current_time_to_consume = 0
 					is_consuming = false
-
 					onConsumed.emit()
+					for child in consume_target.get_children():
+						if child is CollisionShape2D or child is Sprite2D:
+							remove_child(child)
+							child.queue_free()
+					audio_player.pitch_scale = 150.0 / min(ray_size, 500)
+					audio_player.play()
+					await audio_player.finished
 					consume_target.queue_free()
 			else:
 				current_time_to_consume = 0

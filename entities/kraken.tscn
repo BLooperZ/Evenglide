@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsm6ofx8u0hi2"]
+[gd_scene load_steps=6 format=3 uid="uid://bsm6ofx8u0hi2"]
 
 [ext_resource type="Texture2D" uid="uid://klsndgpwkdwe" path="res://textures/objects/kraken.png" id="1_xdrgh"]
 [ext_resource type="Script" uid="uid://bg84b72l60ijl" path="res://consumable.gd" id="2_cmoye"]
 [ext_resource type="Texture2D" uid="uid://c4rhiob8i4yhj" path="res://textures/export/gmtk icons-03.png" id="3_cmoye"]
+[ext_resource type="AudioStream" uid="uid://bx4xbncwixdwg" path="res://splash2.ogg" id="4_ojlye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpg34"]
 radius = 3517.21
@@ -32,3 +33,6 @@ metadata/_custom_type_script = "uid://bg84b72l60ijl"
 position = Vector2(133, 2650)
 scale = Vector2(47.5938, 47.5938)
 texture = ExtResource("3_cmoye")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ojlye")
